@@ -1,2 +1,2 @@
-# Group42_2110315_2130446_2130248_1910961
+# Group42_2110315_2130446_2130248_1910961_Pharmacy
  Simulating the operations of a multinational pharmaceutical company
