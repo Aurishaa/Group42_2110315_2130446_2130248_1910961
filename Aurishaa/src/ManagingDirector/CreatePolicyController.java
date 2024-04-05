@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg;
+package ManagingDirector;
 
+import Users.ManagingDirector;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,9 +23,8 @@ import javafx.scene.control.TextField;
 
 
 public class CreatePolicyController implements Initializable {
-    
-   
-   }
+
+ 
 
   
 
@@ -35,53 +36,45 @@ public class CreatePolicyController implements Initializable {
     private DatePicker policyDatePicker;
     @FXML
     private Label policyInfoLabel;
+    private ManagingDirector managingDirector;
+    
+    public ManagingDirector managingDirector() {
+        return managingDirector;
+    }
 
-   
+    public ManagingDirector getManagingDirector() {
+        return managingDirector;
+    }
+
+    public void setManagingDirector(ManagingDirector managingDirector) {
+        this.managingDirector = managingDirector;
+    }
     @Override
+    
+    
     public void initialize(URL url, ResourceBundle rb) {
        
-    }    
+    }  
 
     @FXML
+    
+    
     private void savePolicyButtonOnClick(ActionEvent event) {
-        File f = null;
-        FileOutputStream fos = null;
-        DataOutputStream dos = null;
-
-        try {
-            f = new File("PolicyInfo.bin");
-            if (f.exists()) fos = new FileOutputStream(f, true);
-            else fos = new FileOutputStream(f);
-
-            dos = new DataOutputStream(fos);
+       
         
         
          String policyTitle=policyTitleTextField.getText();
          String policyDetails=policyDetailsTextField.getText();
-         String policyEffectiveDate = policyDatePicker.getValue().toString();
+         LocalDate policyEffectiveDate = policyDatePicker.getValue();
          
-         
+         managingDirector.createPolicy(policyTitle, policyDetails, policyEffectiveDate);
          String policyInfo= "Policy Title: " + policyTitle + "\n" +"\n"
                           + "Policy Details: " + policyDetails + "\n" +"\n" 
                           + "Effective from: " + policyEffectiveDate + "\n"+ "\n" ;
-         dos.writeUTF(policyInfo);
-         dos.writeUTF("\n----------------------\n");
+      
          policyInfoLabel.setText(policyInfo);
-         
-         } 
-         catch (IOException ex) {
-            Logger.getLogger(CreatePolicyController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally {
-            
-                if (dos != null) try {
-                    dos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(CreatePolicyController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-           
-        }
-         
+        
+       
     }
     
    
