@@ -21,6 +21,11 @@ import javafx.scene.control.TextField;
 
 
 public class CreatePolicyController implements Initializable {
+    
+   
+   }
+
+  
 
     @FXML
     private TextField policyTitleTextField;
@@ -31,12 +36,10 @@ public class CreatePolicyController implements Initializable {
     @FXML
     private Label policyInfoLabel;
 
-    /**
-     * Initializes the controller class.
-     */
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
     }    
 
     @FXML
