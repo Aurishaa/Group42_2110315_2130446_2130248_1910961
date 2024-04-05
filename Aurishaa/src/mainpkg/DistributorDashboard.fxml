@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="339.0" prefWidth="541.0" style="-fx-background-color: lavender;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Label layoutX="97.0" layoutY="37.0" prefHeight="39.0" prefWidth="420.0" style="-fx-background-color: WHITE;" text="WELCOME , DISTRIBUTOR">
+         <font>
+            <Font name="Bodoni MT" size="30.0" />
+         </font>
+      </Label>
+      <Line endX="448.0" layoutX="115.0" layoutY="101.0" startX="-100.0" />
+      <MenuBar layoutY="109.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="My Dashboard">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Place Order" />
+                  <MenuItem mnemonicParsing="false" text="Status" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Log out">
+            <items>
+              <MenuItem mnemonicParsing="false" text="DeleExitte" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button layoutX="465.0" layoutY="284.0" mnemonicParsing="false" text="Back" />
+   </children>
+</AnchorPane>
