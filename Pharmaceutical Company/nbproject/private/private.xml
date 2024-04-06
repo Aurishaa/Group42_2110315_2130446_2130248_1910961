@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/Supply_Report.fxml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/Order_Status.fxml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/Supplied_Products.fxml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/SupplyChainManager_Dashboard.fxml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/Process_Payment.fxml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/ApplicationClass.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/Supplier_Dashboard.fxml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/IncomingOrders.fxml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/Order_List.fxml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Pharmaceutical%20Company/src/mainpkg/Supplier_Information.fxml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
