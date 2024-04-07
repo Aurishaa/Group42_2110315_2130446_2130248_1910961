@@ -3,12 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="714.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="714.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SupplyChainManager.SupplyChainManager_DashboardController">
    <children>
       <Label layoutX="194.0" layoutY="55.0" prefHeight="39.0" prefWidth="267.0" text="Hello!&#10;Welcome to Supply Chain Manager Dashboard">
          <font>
@@ -20,53 +19,53 @@
             <Font name="Arial Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextArea layoutX="318.0" layoutY="112.0" prefHeight="98.0" prefWidth="313.0" text="SQUARE  &#10; PHARMACEUTICALS LTD.">
+      <TextArea layoutX="222.0" layoutY="112.0" prefHeight="98.0" prefWidth="313.0" text="SQUARE  &#10; PHARMACEUTICALS LTD.">
          <font>
             <Font name="Baskerville Old Face" size="21.0" />
          </font>
       </TextArea>
       <ImageView fitHeight="131.0" fitWidth="133.0" layoutX="169.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="98.0" fitWidth="116.0" layoutX="222.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="98.0" fitWidth="98.0" layoutX="222.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../square_pharmaceuticals_logo.jpeg" />
-         </image>
-      </ImageView>
       <Label layoutX="61.0" layoutY="42.0" prefHeight="46.0" prefWidth="109.0" text="  SCM" textFill="#99422e">
          <font>
             <Font name="System Bold Italic" size="25.0" />
          </font>
       </Label>
-      <Button layoutX="38.0" layoutY="94.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Manage Orders">
+      <Button layoutX="38.0" layoutY="94.0" mnemonicParsing="false" onAction="#manageOrdersButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Manage Orders">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="38.0" layoutY="149.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Order status">
+      <Button layoutX="38.0" layoutY="149.0" mnemonicParsing="false" onAction="#orderStatusButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Order status">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="202.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Budget Approval    &#10;         Request">
+      <Button layoutX="37.0" layoutY="202.0" mnemonicParsing="false" onAction="#budgetApproveButtonMouseOnClicked" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Budget Approval    &#10;         Request">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="259.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Orders">
+      <Button layoutX="37.0" layoutY="259.0" mnemonicParsing="false" onAction="#OrdersPMButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Orders(PM)">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="38.0" layoutY="312.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Inventory">
+      <Button layoutX="38.0" layoutY="312.0" mnemonicParsing="false" onAction="#InventoryButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Inventory">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="38.0" layoutY="363.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Manage Suppliers">
+      <Button layoutX="38.0" layoutY="363.0" mnemonicParsing="false" onAction="#manageSuppliersButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Manage Suppliers">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="38.0" layoutY="413.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Manage Products">
+      <Button layoutX="38.0" layoutY="413.0" mnemonicParsing="false" onAction="#manageProductsButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Manage Products">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="452.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="39.0" prefWidth="97.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
