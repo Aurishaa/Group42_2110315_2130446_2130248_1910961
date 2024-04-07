@@ -6,8 +6,8 @@ package Users;
 
 
 
-import Common.AppendableObjectOutputStream;
-import ManagingDirector.Policy;
+import Classes.Policy;
+import common.AppendableObjectOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,14 +17,17 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class ManagingDirector  extends User implements Serializable{
      
-    
+           
+
+
     
     public ManagingDirector(String name, Integer ID, String password, String email, String gender, LocalDate DOB) {
         super(name, ID, password, email, gender, DOB);
     }
-
+    
     public String getName() {
         return name;
     }
@@ -48,46 +51,54 @@ public class ManagingDirector  extends User implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    @Override
+    public String toString() {
+        return "ManagingDirector{" + '}';
+    }
+     
     
     public void createPolicy( String policyTitle, String policyDetails,LocalDate policyEffectiveDate){ 
-        File f = null;
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-
-        try {
-            f = new File("PolicyInfo.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
+        
              Policy newPolicy = new Policy(policyTitle,  policyDetails,  policyEffectiveDate);
-             oos.writeObject(newPolicy);
-             System.out.println("Policy written successfully!");
-             
-             
-         
-      
-         
-         } 
-        catch (IOException ex) {
-             Logger.getLogger(ManagingDirector.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally {
-            
-                if (oos != null) try {
+             File f = null;
+             FileOutputStream fos = null;
+             ObjectOutputStream oos = null;
+            try {
+
+            f = new File("Policy.bin");
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(newPolicy);
+            oos.close();
+           
+
+        } catch (IOException e) {
+            if (oos != null) {
+                try {
                     oos.close();
                 } catch (IOException ex) {
                     Logger.getLogger(ManagingDirector.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
-           
-        }
+            }
+            
     }
+
+         
+    }
+                
+}               
+           
+        
     
-}    
-     
+    
+        
+   

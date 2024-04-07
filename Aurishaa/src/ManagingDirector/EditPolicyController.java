@@ -22,10 +22,10 @@ import javafx.scene.control.TextField;
 public class EditPolicyController implements Initializable {
 
     @FXML
-    private TableView<Policy> policyInfoTableView;
-    @FXML
-    private TableColumn<Policy,String> policyNameTableColumn;
-    @FXML
+    //private TableView<Policy> policyInfoTableView;
+   // @FXML
+   // private TableColumn<Policy,String> policyNameTableColumn;
+   // @FXML
     //private TableColumn<Policy.LocatDate> effectiveDateTableColumn;
     //@FXML
     private TextField searchPolicyTextField;
