@@ -3,10 +3,12 @@ package Supplier;
 
 
 
-import Users.Supplier;
+//import Users.Supplier;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,12 +33,12 @@ public class Supplier_InformationController implements Initializable {
     @FXML    private TableColumn<SupplierInformationTable, String> companyNameTableColumn;
     @FXML    private TableColumn<SupplierInformationTable, String> contactPersonTableColumn;
     @FXML    private TableColumn<SupplierInformationTable, String> contactNumberTableColumn;
-private Supplier supplier;
+//private Supplier supplier;
     //ArrayList<Supplier>supplierList;
     @FXML
     private Label supplierInfoLabel;
     
-
+    private ObservableList<SupplierInformationTable> supplierData = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        // supplierList=new ArrayList<Supplier>();
@@ -45,6 +47,8 @@ private Supplier supplier;
         companyNameTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("companyName"));
        contactPersonTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactPerson"));
        contactNumberTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactNumber"));
+       
+      supplierInfoTableView.setItems(supplierData); 
        
     }    
 
@@ -55,12 +59,13 @@ private Supplier supplier;
         String contactNumber=contactNumberTextField.getText();
         
         
-        
+        SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson, contactNumber);
+        supplierData.add(supplierInfo);
         
        // supplierList.add(newSupplier);
                
-        supplierInfoTableView.getItems().add(new SupplierInformationTable(companyName, contactPerson, contactNumber )
-        );
+        //supplierInfoTableView.getItems().add(new SupplierInformationTable(companyName, contactPerson, contactNumber )
+        //);
                  
                
                           
@@ -72,22 +77,26 @@ private Supplier supplier;
         String companyName=companyNameTextField.getText();
         String contactPerson=contactPersonTextField.getText();
         String contactNumber=contactNumberTextField.getText();
-
-        supplier.supplierInformation(companyName, contactPerson, contactNumber);
-        String supplierInfo = "Company Name: " + companyName + "\n\n"
-                + "Contact Person: " + contactPerson + "\n\n"
-                + "Contact Number: " + contactNumber + "\n\n";
-        supplierInfoLabel.setText(supplierInfo);
+        
+        
+       // supplier.supplierInformation(companyName, contactPerson, contactNumber);
+       // String supplierInfo = "Company Name: " + companyName + "\n\n"
+        //        + "Contact Person: " + contactPerson + "\n\n"
+          //      + "Contact Number: " + contactNumber + "\n\n";
+        //supplierInfoLabel.setText(supplierInfo);
     }
 
     @FXML
     private void backButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/Supplier_Dashdoard.fxml"));
-        Scene scene1= new Scene(mainSceneParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+        String filepath = "Supplier_Dashboard.fxml";
+
+        Parent gotoscene2 = FXMLLoader.load(getClass().getResource(filepath));
+        Scene scene = new Scene(gotoscene2);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
-    }
+    
+}
 
         

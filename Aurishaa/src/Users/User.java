@@ -14,7 +14,7 @@ public abstract class User implements Serializable{
     public final Integer ID;
     protected String password;
     public String email;
-    protected final LocalDate DOB;
+
 
     public User(String name, Integer ID, String password, String email, LocalDate Date) {
         this.name = name;
@@ -48,19 +48,6 @@ public abstract class User implements Serializable{
         this.email = email;
     }
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public LocalDate getDOB() {
-        return DOB;
-    }
-
-    
-    @Override
-    public String toString() {
-        return "User{" + "name=" + name + ", ID=" + ID + ", password=" + password + ", email=" + email + ", Date=" + Date + '}';
-    }
   
     
     

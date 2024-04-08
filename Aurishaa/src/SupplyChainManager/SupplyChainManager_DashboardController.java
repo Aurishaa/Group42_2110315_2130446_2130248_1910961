@@ -32,43 +32,47 @@ public class SupplyChainManager_DashboardController implements Initializable {
     }    
 
     @FXML
-    private void manageOrdersButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Manage_Orders.fxml"));
+    private void provideOrdersButtonMouseOnClicked(ActionEvent event)  throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Provide_Orders.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
 
+
     @FXML
-    private void orderStatusButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Order_Status.fxml"));
+    private void viewStatusButtonMouseOnClicked(ActionEvent event)  throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("View_Status.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
 
+
     @FXML
-    private void budgetApproveButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Budget_Approval_Request.fxml"));
+    private void budgetApproveButtonMouseOnClicked(ActionEvent event)  throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Budget_Approval.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
 
+
     @FXML
-    private void OrdersPMButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Orders_PM.fxml"));
+    private void viewFeedbackButtonMouseOnClicked(ActionEvent event)  throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("View_Feedback.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
 
+
     @FXML
-    private void InventoryButtonMouseOnClicked(ActionEvent event) throws IOException {
+    private void InventoryButtonMouseOnClicked(ActionEvent event)  throws IOException {
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Inventory.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -76,17 +80,19 @@ public class SupplyChainManager_DashboardController implements Initializable {
         window.show();
     }
 
+
     @FXML
-    private void manageSuppliersButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Manage_Suppliers.fxml"));
+    private void viewSuppliersButtonMouseOnClicked(ActionEvent event)  throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("View_Suppliers.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
 
+
     @FXML
-    private void manageProductsButtonMouseOnClicked(ActionEvent event) throws IOException {
+    private void manageProductsButtonMouseOnClicked(ActionEvent event)  throws IOException {
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Manage_Products.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -94,13 +100,15 @@ public class SupplyChainManager_DashboardController implements Initializable {
         window.show();
     }
 
+
     @FXML
-    private void backButtonMouseOnClicked(ActionEvent event) throws IOException {
+    private void backButtonMouseOnClicked(ActionEvent event)  throws IOException {
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Common/login.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
+
     
 }
