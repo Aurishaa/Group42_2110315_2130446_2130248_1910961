@@ -15,7 +15,11 @@ public class MainApplicationClass extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+<<<<<<< Updated upstream
         Parent root = FXMLLoader.load(getClass().getResource("/ManagingDirector/CreatePolicy.fxml"));
+=======
+        Parent root = FXMLLoader.load(getClass().getResource("/Common/Login.fxml"));
+>>>>>>> Stashed changes
         
         Scene scene = new Scene(root);
         
