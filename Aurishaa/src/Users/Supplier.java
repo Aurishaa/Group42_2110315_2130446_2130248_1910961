@@ -22,13 +22,14 @@ public class Supplier extends User implements Serializable{
     public String contactPerson;
     public String contactNumber;
 
-    public Supplier(String companyName, String contactPerson, String contactNumber, String name, Integer ID, String password, String email, String gender, LocalDate DOB) {
-        super(name, ID, password, email, gender, DOB);
+    public Supplier(String companyName, String contactPerson, String contactNumber, String name, Integer ID, String password, String email) {
+        super(name, ID, password, email);
         this.companyName = companyName;
         this.contactPerson = contactPerson;
         this.contactNumber = contactNumber;
     }
 
+  
     public String getCompanyName() {
         return companyName;
     }
