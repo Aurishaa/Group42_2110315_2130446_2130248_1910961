@@ -12,9 +12,9 @@
 
 <BorderPane fx:id="mDDashboardBorderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="566.0" style="-fx-background-color: lavender;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManagingDirector.ManagingDirectorDashboardController">
    <top>
-      <MenuBar fx:id="mDDashboardMenuBar" BorderPane.alignment="CENTER">
+      <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu fx:id="dashboardMenuItem" mnemonicParsing="false" text="Dashboard">
+          <Menu mnemonicParsing="false" onAction="#dashboardMenuItem" text="Dashboard">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#viewReportOnClick" text="Report" />
                   <MenuItem mnemonicParsing="false" onAction="#createOREditPolicyOnPolicy" text="Policy" />
@@ -23,7 +23,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#scheduleMeetingOnClick" text="Schedule Meeting" />
             </items>
           </Menu>
-          <Menu fx:id="exitMenuItem" mnemonicParsing="false" text="Exit">
+          <Menu mnemonicParsing="false" onAction="#exitMenuItem" text="Exit">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#logoutOnClick" text="Logout" />
             </items>
@@ -39,7 +39,7 @@
    <center>
       <AnchorPane prefHeight="344.0" prefWidth="566.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="squarePharma" fitHeight="282.0" fitWidth="542.0" layoutX="38.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="282.0" fitWidth="542.0" layoutX="38.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Group42_Pharmacy_2110315_2130446_2130248_1910961/loginpicture.png" />
                </image>

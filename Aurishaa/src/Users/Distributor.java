@@ -5,13 +5,12 @@
 package Users;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 
 public class Distributor extends User implements Serializable {
-    private static final long serialVersionUID = 345L;
-    public Distributor(String name, Integer ID, String password, String email, String gender, LocalDate DOB) {
-        super(name, ID, password, email, gender, DOB);
+    
+    public Distributor(String name, Integer ID, String password, String email) {
+        super(name, ID, password, email);
     }
 
     public String getName() {
@@ -38,5 +37,6 @@ public class Distributor extends User implements Serializable {
         this.email = email;
     }
     
+    
+    
 }
-

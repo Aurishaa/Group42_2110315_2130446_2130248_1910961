@@ -7,7 +7,7 @@ package Users;
 
 
 import Classes.Policy;
-import common.AppendableObjectOutputStream;
+import Common.AppendableObjectOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,14 +19,12 @@ import java.util.logging.Logger;
 
 
 public class ManagingDirector  extends User implements Serializable{
-     
-           
 
-
-    
-    public ManagingDirector(String name, Integer ID, String password, String email, String gender, LocalDate DOB) {
-        super(name, ID, password, email, gender, DOB);
+    public ManagingDirector(String name, Integer ID, String password, String email) {
+        super(name, ID, password, email);
     }
+
+   
     
     public String getName() {
         return name;

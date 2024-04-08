@@ -4,14 +4,12 @@
  */
 package ManagingDirector;
 
+import Users.ManagingDirector;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -23,15 +21,18 @@ public class ManagingDirectorDashboardController implements Initializable {
 
     @FXML
     private BorderPane mDDashboardBorderpane;
-    @FXML
-    private MenuBar mDDashboardMenuBar;
-    @FXML
-    private Menu dashboardMenuItem;
-    @FXML
-    private Menu exitMenuItem;
-    @FXML
-    private ImageView squarePharma;
+    private ManagingDirector managingDirector;
 
+    public ManagingDirector getManagingDirector() {
+        return managingDirector;
+    }
+
+    public void setManagingDirector(ManagingDirector managingDirector) {
+        this.managingDirector = managingDirector;
+    }
+
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,7 +60,16 @@ public class ManagingDirectorDashboardController implements Initializable {
     }
 
     @FXML
+    private void dashboardMenuItem(ActionEvent event) {
+    }
+
+    @FXML
     private void logoutOnClick(ActionEvent event) {
     }
-    
+
+    @FXML
+    private void exitMenuItem(ActionEvent event) {
+    }
+
+   
 }
