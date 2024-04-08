@@ -48,5 +48,9 @@ public class DistributorDashboardController implements Initializable {
     private void provideFeedbackOnButtonClick(ActionEvent event) {
     }
 
+    public void setDistributor(Distributor distributor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     
 }

@@ -18,16 +18,51 @@ import java.util.logging.Logger;
 
 
 public class Supplier extends User implements Serializable{
+    
     public String companyName;
     public String contactPerson;
     public String contactNumber;
 
-    public Supplier(String companyName, String contactPerson, String contactNumber, String name, Integer ID, String password, String email) {
-        super(name, ID, password, email);
+    public Supplier(String companyName, String contactPerson, String contactNumber, String name, Integer ID, String password, String email, LocalDate Date) {
+        super(name, ID, password, email, Date);
         this.companyName = companyName;
         this.contactPerson = contactPerson;
         this.contactNumber = contactNumber;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getDate() {
+        return Date;
+    }
+
+    public void setDate(LocalDate Date) {
+        this.Date = Date;
+    }
+    
+   
 
   
     public String getCompanyName() {
