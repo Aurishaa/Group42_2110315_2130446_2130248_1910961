@@ -20,12 +20,10 @@ import java.util.logging.Logger;
 
 public class ManagingDirector  extends User implements Serializable{
 
-    public ManagingDirector(String name, Integer ID, String password, String email) {
-        super(name, ID, password, email);
+    public ManagingDirector(String name, Integer ID, String password, String email, LocalDate DOB, String Group) {
+        super(name, ID, password, email, DOB, Group);
     }
 
-   
-    
     public String getName() {
         return name;
     }
@@ -50,10 +48,24 @@ public class ManagingDirector  extends User implements Serializable{
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "ManagingDirector{" + '}';
+    public String getGroup() {
+        return Group;
     }
+
+    public void setGroup(String Group) {
+        this.Group = Group;
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public LocalDate getDOB() {
+        return DOB;
+    }
+
+
+  
      
     
     public void createPolicy( String policyTitle, String policyDetails,LocalDate policyEffectiveDate){ 

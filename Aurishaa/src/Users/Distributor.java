@@ -5,13 +5,10 @@
 package Users;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 
 public class Distributor extends User implements Serializable {
-    
-    public Distributor(String name, Integer ID, String password, String email) {
-        super(name, ID, password, email);
-    }
 
     public String getName() {
         return name;
@@ -36,6 +33,27 @@ public class Distributor extends User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getGroup() {
+        return Group;
+    }
+
+    public void setGroup(String Group) {
+        this.Group = Group;
+    }
+
+    public Distributor(String name, Integer ID, String password, String email, LocalDate DOB, String Group) {
+        super(name, ID, password, email, DOB, Group);
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public LocalDate getDOB() {
+        return DOB;
+    }
+    
     
     
     
