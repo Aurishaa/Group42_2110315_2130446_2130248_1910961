@@ -30,21 +30,29 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author Dell
+ * @author Lenovo
  */
 public class SignUpController implements Initializable {
 
-    @FXML    private TextField nameTextField;
-    @FXML    private TextField idTextField;
-    @FXML    private TextField emailTextField;
-    @FXML    private TextField passwordTextField;
-    @FXML    private DatePicker dobDatePicker;
-    @FXML    private ComboBox<String> userTypeComboBox;
+    @FXML
+    private TextField nameTextField;
+    @FXML
+    private TextField idTextField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField passwordTextField;
+    @FXML
+    private DatePicker dobDatePicker;
+    @FXML
+    private ComboBox<String> userTypeComboBox;
 
-    
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        userTypeComboBox.getItems().addAll(
+         userTypeComboBox.getItems().addAll(
                 "Managing Director",
                 "Distributor",
                 "Supplier",
@@ -56,7 +64,8 @@ public class SignUpController implements Initializable {
     }    
 
     @FXML
-    private void signUpButtonMouseOnClicked(ActionEvent event) throws FileNotFoundException, IOException {
+    private void signUpButtonMouseOnClicked (ActionEvent event) throws FileNotFoundException, IOException {{
+         
         if(userTypeComboBox.getValue().equals("Managing Director")){
             managingDirectorAndShow();
             Alert a1 = new Alert(Alert.AlertType.INFORMATION);
@@ -184,7 +193,7 @@ public class SignUpController implements Initializable {
     
     
     
-
+    }
     @FXML
     private void backButtonMouseOnClicked(ActionEvent event) throws IOException {
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("login.fxml"));
@@ -209,12 +218,12 @@ public class SignUpController implements Initializable {
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new Users(nameTextField.getText(),
+      User i = new User(nameTextField.getText(),
                     Integer.parseInt(idTextField.getText()),
                     passwordTextField.getText(),
+                    emailTextField.getText(),
                     dobDatePicker.getValue(),
-                    userTypeComboBox.getValue(),
-                    emailTextField.getText());
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -265,12 +274,12 @@ public class SignUpController implements Initializable {
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new Users(nameTextField.getText(),
+      User i = new User(nameTextField.getText(),
                     Integer.parseInt(idTextField.getText()),
                     passwordTextField.getText(),
+                    emailTextField.getText(),
                     dobDatePicker.getValue(),
-                    userTypeComboBox.getValue(),
-                    emailTextField.getText());
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -320,12 +329,12 @@ public class SignUpController implements Initializable {
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new Users(nameTextField.getText(),
+      User i = new User(nameTextField.getText(),
                     Integer.parseInt(idTextField.getText()),
                     passwordTextField.getText(),
+                    emailTextField.getText(),
                     dobDatePicker.getValue(),
-                    userTypeComboBox.getValue(),
-                    emailTextField.getText());
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -375,12 +384,12 @@ public class SignUpController implements Initializable {
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new Users(nameTextField.getText(),
+       User i = new User(nameTextField.getText(),
                     Integer.parseInt(idTextField.getText()),
                     passwordTextField.getText(),
+                    emailTextField.getText(),
                     dobDatePicker.getValue(),
-                    userTypeComboBox.getValue(),
-                    emailTextField.getText());
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -430,12 +439,12 @@ public class SignUpController implements Initializable {
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new Users(nameTextField.getText(),
+       User i = new User(nameTextField.getText(),
                     Integer.parseInt(idTextField.getText()),
                     passwordTextField.getText(),
+                    emailTextField.getText(),
                     dobDatePicker.getValue(),
-                    userTypeComboBox.getValue(),
-                    emailTextField.getText());
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -485,12 +494,12 @@ public class SignUpController implements Initializable {
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new Users(nameTextField.getText(),
+      User i = new User(nameTextField.getText(),
                     Integer.parseInt(idTextField.getText()),
                     passwordTextField.getText(),
+                    emailTextField.getText(),
                     dobDatePicker.getValue(),
-                    userTypeComboBox.getValue(),
-                    emailTextField.getText());
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -540,12 +549,12 @@ public class SignUpController implements Initializable {
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new Users(nameTextField.getText(),
+      User i = new User(nameTextField.getText(),
                     Integer.parseInt(idTextField.getText()),
                     passwordTextField.getText(),
+                    emailTextField.getText(),
                     dobDatePicker.getValue(),
-                    userTypeComboBox.getValue(),
-                    emailTextField.getText());
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -595,12 +604,13 @@ public class SignUpController implements Initializable {
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new Users(nameTextField.getText(),
+       User i = new User(nameTextField.getText(),
                     Integer.parseInt(idTextField.getText()),
                     passwordTextField.getText(),
+                    emailTextField.getText(),
                     dobDatePicker.getValue(),
-                    userTypeComboBox.getValue(),
-                    emailTextField.getText());
+                    userTypeComboBox.getValue());
+                    
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;

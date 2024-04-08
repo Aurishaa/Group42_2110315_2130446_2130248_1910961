@@ -4,39 +4,26 @@
  */
 package Users;
 
-import Classes.LoginInfo;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 
 
-public abstract class User implements Serializable{
-  //  private static final long serialVersionUID = 345L;
+public  class User implements Serializable{
     public String name;
     public final Integer ID;
     protected String password;
-    public String email;
-    
+    public String email; 
+    protected final LocalDate DOB;
+     public String Group;
 
-    public User(String name, Integer ID, String password, String email) {
+    public User(String name, Integer ID, String password, String email, LocalDate DOB, String Group) {
         this.name = name;
         this.ID = ID;
         this.password = password;
         this.email = email;
+        this.DOB = DOB;
+        this.Group = Group;
     }
-    
-
-    
-    
-
-    public Integer getID() {
-        return ID;
-    }
-
-  
 
     public String getName() {
         return name;
@@ -61,8 +48,28 @@ public abstract class User implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-  
-    
-    
+
+    public String getGroup() {
+        return Group;
     }
 
+    public void setGroup(String Group) {
+        this.Group = Group;
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public LocalDate getDOB() {
+        return DOB;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "name=" + name + ", ID=" + ID + ", password=" + password + ", email=" + email + ", DOB=" + DOB + ", Group=" + Group + '}';
+    }
+
+    
+
+}  

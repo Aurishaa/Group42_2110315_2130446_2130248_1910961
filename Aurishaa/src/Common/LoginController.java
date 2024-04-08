@@ -70,7 +70,7 @@ public class LoginController implements Initializable {
                 while (true) {
                     p = (User) ois.readObject();
                     if (String.valueOf(p.getID()).equals(idTextField.getText()) && p.getPassword().equals(pwPasswordField.getText())) {
-                        Parent A = FXMLLoader.load(getClass().getResource("MaangingDirectorDashboard.fxml"));
+                        Parent A = FXMLLoader.load(getClass().getResource("/ManagingDirector/ManagingDirectorDashboard.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(sceneA);                      
@@ -144,7 +144,7 @@ public class LoginController implements Initializable {
                 while (true) {
                     p = (User) ois.readObject();
                     if (String.valueOf(p.getID()).equals(idTextField.getText()) && p.getPassword().equals(pwPasswordField.getText())) {
-                        Parent A = FXMLLoader.load(getClass().getResource("SupplierDashboard.fxml"));
+                        Parent A = FXMLLoader.load(getClass().getResource("/Supplier/Supplier_Dashboard.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(sceneA);                      
@@ -321,7 +321,7 @@ public class LoginController implements Initializable {
             ObjectInputStream ois = null;
 
         try {
-            f = new File("FinancManager.bin");
+            f = new File("FinanceManager.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             User p;
@@ -357,7 +357,14 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void signUpButtonOnClick(ActionEvent event) {
+    private void signUpButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
+        
+    
     
 }

@@ -23,10 +23,34 @@ public class Supplier extends User implements Serializable{
     public String contactPerson;
     public String contactNumber;
 
-    public Supplier(String companyName, String contactPerson, String contactNumber, String name, Integer ID, String password, String email, LocalDate Date) {
-        super(name, ID, password, email, Date);
+    public Supplier(String companyName, String contactPerson, String contactNumber, String name, Integer ID, String password, String email, LocalDate DOB, String Group) {
+        super(name, ID, password, email, DOB, Group);
         this.companyName = companyName;
         this.contactPerson = contactPerson;
+        this.contactNumber = contactNumber;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(String contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
@@ -54,53 +78,36 @@ public class Supplier extends User implements Serializable{
         this.email = email;
     }
 
-    public LocalDate getDate() {
-        return Date;
+    public String getGroup() {
+        return Group;
     }
 
-    public void setDate(LocalDate Date) {
-        this.Date = Date;
+    public void setGroup(String Group) {
+        this.Group = Group;
     }
-    
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public LocalDate getDOB() {
+        return DOB;
+    }
+
    
+    
 
+ 
+
+  public void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
+                   SupplierInformationTable newInformation = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
   
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getContactPerson() {
-        return contactPerson;
-    }
-
-    public void setContactPerson(String contactPerson) {
-        this.contactPerson = contactPerson;
-    }
-
-    public String getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "Supplier{" + "companyName=" + companyName + ", contactPerson=" + contactPerson + ", contactNumber=" + contactNumber + '}';
-    }
-
-    public void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
         File f = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
 
         try {
-            f = new File("SupplierInfo.bin");
+            f = new File("SupplierInformationTable.bin");
             if(f.exists()){
                 fos = new FileOutputStream(f,true);
                 oos = new AppendableObjectOutputStream(fos);                
@@ -109,7 +116,6 @@ public class Supplier extends User implements Serializable{
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);               
             }
-             SupplierInformationTable newInformation = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
              oos.writeObject(newInformation);
              System.out.println("Supplier information written successfully!");
              

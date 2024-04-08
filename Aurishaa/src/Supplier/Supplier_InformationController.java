@@ -4,6 +4,7 @@ package Supplier;
 
 
 //import Users.Supplier;
+import Users.Supplier;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,7 +34,16 @@ public class Supplier_InformationController implements Initializable {
     @FXML    private TableColumn<SupplierInformationTable, String> companyNameTableColumn;
     @FXML    private TableColumn<SupplierInformationTable, String> contactPersonTableColumn;
     @FXML    private TableColumn<SupplierInformationTable, String> contactNumberTableColumn;
-//private Supplier supplier;
+    public Supplier supplier;
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+   
     //ArrayList<Supplier>supplierList;
     @FXML
     private Label supplierInfoLabel;
@@ -62,6 +72,7 @@ public class Supplier_InformationController implements Initializable {
         SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson, contactNumber);
         supplierData.add(supplierInfo);
         
+        
        // supplierList.add(newSupplier);
                
         //supplierInfoTableView.getItems().add(new SupplierInformationTable(companyName, contactPerson, contactNumber )
@@ -79,7 +90,7 @@ public class Supplier_InformationController implements Initializable {
         String contactNumber=contactNumberTextField.getText();
         
         
-       // supplier.supplierInformation(companyName, contactPerson, contactNumber);
+        supplier.supplierInformation(companyName, contactPerson, contactNumber);
        // String supplierInfo = "Company Name: " + companyName + "\n\n"
         //        + "Contact Person: " + contactPerson + "\n\n"
           //      + "Contact Number: " + contactNumber + "\n\n";
