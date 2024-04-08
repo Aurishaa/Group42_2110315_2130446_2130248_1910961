@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="524.0" prefWidth="704.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane id="AnchorPane" prefHeight="524.0" prefWidth="704.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Supplier.IncomingOrdersController">
    <children>
       <TableView layoutX="27.0" layoutY="110.0" prefHeight="328.0" prefWidth="651.0">
         <columns>
@@ -19,7 +19,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="575.0" layoutY="454.0" mnemonicParsing="false" style="-fx-background-color: orange; -fx-border-color: red;" text="Process Order">
+      <Button layoutX="575.0" layoutY="454.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: orange; -fx-border-color: red;" text="View Order">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
