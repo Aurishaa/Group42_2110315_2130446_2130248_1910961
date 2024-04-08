@@ -5,12 +5,8 @@
         <group>
             <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/Supplier/Supplier_DashboardController.java</file>
             <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/Users/Supplier.java</file>
-            <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/ManagingDirector/Policy.java</file>
-            <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/ManagingDirector/CreatePolicyController.java</file>
-            <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/SupplyChainManager/SupplyChainManager_DashboardController.java</file>
-            <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/mainpkg/MainApplicationClass.java</file>
-            <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/Supplier/Supplier_InformationController.java</file>
-            <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/Supplier/SupplierInformationTable.java</file>
+            <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/Common/SignUpController.java</file>
+            <file>file:/E:/CSE213(OOP)/Group42_2110315_2130446_2130248_1910961_Pharmacy/Aurishaa/src/Users/User.java</file>
         </group>
     </open-files>
 </project-private>
