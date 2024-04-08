@@ -5,15 +5,9 @@
 package ManagingDirector;
 
 import Users.ManagingDirector;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,8 +17,15 @@ import javafx.scene.control.TextField;
 
 
 public class CreatePolicyController implements Initializable {
+      private ManagingDirector managingDirector;
+      
+      public ManagingDirector getmanagingDirector() {
+        return managingDirector;
+    }
 
- 
+    public void setmanagingDirector(ManagingDirector managingDirector) {
+        this.managingDirector = managingDirector;
+    }
 
   
 
@@ -36,19 +37,11 @@ public class CreatePolicyController implements Initializable {
     private DatePicker policyDatePicker;
     @FXML
     private Label policyInfoLabel;
-    private ManagingDirector managingDirector;
     
-    public ManagingDirector managingDirector() {
-        return managingDirector;
-    }
-
-    public ManagingDirector getManagingDirector() {
-        return managingDirector;
-    }
-
-    public void setManagingDirector(ManagingDirector managingDirector) {
-        this.managingDirector = managingDirector;
-    }
+    
+    
+   
+    
     @Override
     
     
@@ -63,21 +56,25 @@ public class CreatePolicyController implements Initializable {
        
         
         
-         String policyTitle=policyTitleTextField.getText();
-         String policyDetails=policyDetailsTextField.getText();
-         LocalDate policyEffectiveDate = policyDatePicker.getValue();
-         
-         managingDirector.createPolicy(policyTitle, policyDetails, policyEffectiveDate);
-         String policyInfo= "Policy Title: " + policyTitle + "\n" +"\n"
-                          + "Policy Details: " + policyDetails + "\n" +"\n" 
-                          + "Effective from: " + policyEffectiveDate + "\n"+ "\n" ;
-      
-         policyInfoLabel.setText(policyInfo);
-        
-       
-    }
-    
+        String policyTitle = policyTitleTextField.getText();
+        String policyDetails = policyDetailsTextField.getText();
+        LocalDate policyEffectiveDate = policyDatePicker.getValue();
+        if (policyTitle == null || policyDetails == null || policyEffectiveDate == null) {
    
+        return; 
+}
+
+        managingDirector.createPolicy(policyTitle, policyDetails, policyEffectiveDate);
+    
+        String policyInfo = "Policy Title: " + policyTitle + "\n\n"
+                + "Policy Details: " + policyDetails + "\n\n"
+                + "Effective from: " + policyEffectiveDate + "\n\n";
+        policyInfoLabel.setText(policyInfo);
+        System.out.println("Successful");
+       
+    
+    
+    }   
 
     @FXML
     private void downloadPolicyButtonOnClick(ActionEvent event) {
