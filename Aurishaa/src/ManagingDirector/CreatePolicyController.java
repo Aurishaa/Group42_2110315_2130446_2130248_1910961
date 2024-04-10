@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -56,22 +57,33 @@ public class CreatePolicyController implements Initializable {
        
         
         
-        String policyTitle = policyTitleTextField.getText();
+        String policytitle = policyTitleTextField.getText();
         String policyDetails = policyDetailsTextField.getText();
         LocalDate policyEffectiveDate = policyDatePicker.getValue();
-        if (policyTitle == null || policyDetails == null || policyEffectiveDate == null) {
+        if (policytitle == null || policyDetails == null || policyEffectiveDate == null) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.setContentText("Please fill in all the required fields.");
+        alert.showAndWait();
+        return;
    
-        return; 
+        
 }
 
-        managingDirector.createPolicy(policyTitle, policyDetails, policyEffectiveDate);
+        managingDirector.createPolicy(policytitle, policyDetails, policyEffectiveDate);
     
-        String policyInfo = "Policy Title: " + policyTitle + "\n\n"
+        String policyInfo = "Policy Title: " + policytitle + "\n\n"
                 + "Policy Details: " + policyDetails + "\n\n"
                 + "Effective from: " + policyEffectiveDate + "\n\n";
         policyInfoLabel.setText(policyInfo);
         System.out.println("Successful");
        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("New policy has been created successfully.");
+        alert.showAndWait();
     
     
     }   

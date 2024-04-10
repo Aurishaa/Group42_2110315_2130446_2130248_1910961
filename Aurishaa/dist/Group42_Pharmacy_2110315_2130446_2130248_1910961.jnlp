@@ -8,7 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
     <jar href="Group42_Pharmacy_2110315_2130446_2130248_1910961.jar" size="510867" download="eager" />
+=======
+    <jar href="Group42_Pharmacy_2110315_2130446_2130248_1910961.jar" size="512191" download="eager" />
+>>>>>>> 4b68ed0ecb6bf697ad7aafec9f3acfaeceefb1de
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="mainpkg.MainApplicationClass"  name="Group42_Pharmacy_2110315_2130446_2130248_1910961" />
   <update check="always"/>
