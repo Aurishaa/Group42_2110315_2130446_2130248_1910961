@@ -68,7 +68,7 @@ public class ManagingDirector  extends User implements Serializable{
   
      
     
-    public void createPolicy( String policyTitle, String policyDetails,LocalDate policyEffectiveDate){ 
+    public static void createPolicy( String policyTitle, String policyDetails,LocalDate policyEffectiveDate){ 
         
              Policy newPolicy = new Policy(policyTitle,  policyDetails,  policyEffectiveDate);
              File f = null;

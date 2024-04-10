@@ -4,13 +4,17 @@
  */
 package ManagingDirector;
 
-import Users.ManagingDirector;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -19,57 +23,42 @@ import javafx.scene.layout.BorderPane;
  */
 public class ManagingDirectorDashboardController implements Initializable {
 
-    @FXML
-    private BorderPane mDDashboardBorderpane;
-    private ManagingDirector managingDirector;
-
-    public ManagingDirector getManagingDirector() {
-        return managingDirector;
-    }
-
-    public void setManagingDirector(ManagingDirector managingDirector) {
-        this.managingDirector = managingDirector;
-    }
-
-    
-    
-    
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
     @FXML
-    private void viewReportOnClick(ActionEvent event) {
+    private void viewReportOnButtonClick(ActionEvent event) {
     }
 
     @FXML
-    private void createOREditPolicyOnPolicy(ActionEvent event) {
+    private void createOrEditPolicyOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/CreateOrEditPolicy.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void setGoalOnClick(ActionEvent event) {
+    private void viewBudgetOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/Budget.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void approveBudgetOnClick(ActionEvent event) {
+    private void scheduleMeetingOnButtonClick(ActionEvent event) {
     }
 
     @FXML
-    private void scheduleMeetingOnClick(ActionEvent event) {
+    private void assignTaskOnButtonClick(ActionEvent event) {
     }
-
-    @FXML
-    private void dashboardMenuItem(ActionEvent event) {
-    }
-
-    @FXML
-    private void logoutOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void exitMenuItem(ActionEvent event) {
-    }
-
-   
+    
 }
