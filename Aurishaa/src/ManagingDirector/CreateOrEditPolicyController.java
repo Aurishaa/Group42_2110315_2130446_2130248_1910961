@@ -62,19 +62,20 @@ public class CreateOrEditPolicyController implements Initializable {
         mainSceneParent = loader.load();
     }
     
-    // Pass managingDirector to the controller of the loaded FXML file
-    if (mainSceneParent != null) {
-        if (createPolicyRadioButton.isSelected() || editPolicyRadioButton.isSelected()) {
-            // Access the controller of the loaded FXML file
-            CreatePolicyController controller = loader.getController();
-            controller.setmanagingDirector(managingDirector);
-        }
-
-        Scene scene1 = new Scene(mainSceneParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+   if (mainSceneParent != null) {
+    if (createPolicyRadioButton.isSelected()) { 
+        CreatePolicyController controller = loader.getController();
+        controller.setmanagingDirector(managingDirector);
+    } else if (editPolicyRadioButton.isSelected()) {
+        EditPolicyController controller = loader.getController();
+        controller.setmanagingDirector(managingDirector);
     }
+
+    Scene scene1 = new Scene(mainSceneParent);
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(scene1);
+    window.show(); 
+}
 }
     
 

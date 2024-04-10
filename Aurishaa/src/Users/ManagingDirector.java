@@ -9,13 +9,17 @@ package Users;
 import Classes.Policy;
 import Common.AppendableObjectOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class ManagingDirector  extends User implements Serializable{
@@ -104,8 +108,27 @@ public class ManagingDirector  extends User implements Serializable{
 
          
     }
-                
-}               
+       
+        public static ObservableList<Policy> editPolicy() {
+        ObservableList<Policy> policyList = FXCollections.observableArrayList();
+        Policy p;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("Policy.bin"));
+            while (true) {
+                p = (Policy) ois.readObject();
+                System.out.println("The policy you read: " + p.toString());
+                policyList.add(p);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(policyList);
+        return policyList;
+            
+    
+        }
+        }               
            
         
     

@@ -9,6 +9,7 @@ import java.time.LocalDate;
 
 
 public class Distributor extends User implements Serializable {
+    
 
     public String getName() {
         return name;
