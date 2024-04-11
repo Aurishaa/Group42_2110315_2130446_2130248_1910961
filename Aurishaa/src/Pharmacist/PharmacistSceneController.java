@@ -1,4 +1,8 @@
-package Pharmacist;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
+package pharmacist;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +18,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+/**
+ * FXML Controller class
+ *
+ * @author jupit
+ */
 public class PharmacistSceneController implements Initializable {
 
     @FXML
@@ -36,7 +45,10 @@ public class PharmacistSceneController implements Initializable {
     private Button setReminderButton;
     @FXML
     private Button researchProposalButton;
-    
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -44,50 +56,43 @@ public class PharmacistSceneController implements Initializable {
 
     @FXML
     private void dashboardOnMouseClick(ActionEvent event) {
-        // Your code for handling dashboard button click
     }
 
     @FXML
     private void leaveRequestOnMouseClick(ActionEvent event) {
-        // Your code for handling leave request button click
     }
 
     @FXML
-    private void addNewMedicineOnMouseClick(ActionEvent event) throws IOException{
+    private void addNewMedicineOnMouseClick(ActionEvent event) throws IOException {
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Pharmacist/AddNewMedicine.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
-        window.show();
+        window.show();   
     }
 
     @FXML
     private void checkStockOnMouseClick(ActionEvent event) {
-        // Your code for handling check stock button click
     }
 
     @FXML
     private void searchMedicineOnMouseClick(ActionEvent event) {
-        // Your code for handling search medicine button click
     }
 
     @FXML
     private void distributeMedicineOnMouseClick(ActionEvent event) {
-        // Your code for handling distribute medicine button click
     }
 
     @FXML
     private void generateReportOnMouseClick(ActionEvent event) {
-        // Your code for handling generate report button click
     }
 
     @FXML
     private void setReminderOnMouseClick(ActionEvent event) {
-        // Your code for handling set reminder button click
     }
 
     @FXML
     private void researchProposalOnMouseClick(ActionEvent event) {
-        // Your code for handling research proposal button click
     }
+    
 }
