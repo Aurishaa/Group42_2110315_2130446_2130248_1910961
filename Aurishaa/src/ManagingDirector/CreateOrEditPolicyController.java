@@ -80,7 +80,12 @@ public class CreateOrEditPolicyController implements Initializable {
     
 
     @FXML
-    private void goBackToDashboardButtonOnClick(ActionEvent event) {
+    private void goBackToDashboardButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/ManagingDirectorDashboard.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
     
 }

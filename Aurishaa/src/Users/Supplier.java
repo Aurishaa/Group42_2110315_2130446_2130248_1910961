@@ -99,8 +99,8 @@ public class Supplier extends User implements Serializable{
 
  
 
-  public void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
-                   SupplierInformationTable newInformation = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
+  public static void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
+                   SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
   
         File f = null;
         FileOutputStream fos = null;
@@ -116,7 +116,7 @@ public class Supplier extends User implements Serializable{
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);               
             }
-             oos.writeObject(newInformation);
+             oos.writeObject(supplierInfo);
              System.out.println("Supplier information written successfully!");
              
              

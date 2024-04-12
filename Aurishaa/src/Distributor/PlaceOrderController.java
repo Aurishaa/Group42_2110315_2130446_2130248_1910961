@@ -5,6 +5,7 @@
 package Distributor;
 
 import Classes.OrderedProducts;
+import Users.Distributor;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -40,13 +41,19 @@ public class PlaceOrderController implements Initializable {
     private TextField productQuantityTextField;
     @FXML
     private ComboBox<String> productListComboBox;
+    Distributor distributor;
 
-    /**
-     * Initializes the controller class.
-     */
+    public Distributor getDistributor() {
+        return distributor;
+    }
+
+    public void setDistributor(Distributor distributor) {
+        this.distributor = distributor;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-           productNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Prodcct Name "));
+           productNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Product Name "));
            productQuantityTableColumn.setCellValueFactory(new PropertyValueFactory<>("Quantity "));
            productUnitPriceTableColumn.setCellValueFactory(new PropertyValueFactory<>("Unit Price "));
            totalPriceTableColumn.setCellValueFactory(new PropertyValueFactory<>("Total Price "));

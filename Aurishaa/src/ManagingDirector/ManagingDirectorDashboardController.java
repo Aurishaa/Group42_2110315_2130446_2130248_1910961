@@ -54,11 +54,21 @@ public class ManagingDirectorDashboardController implements Initializable {
     }
 
     @FXML
-    private void scheduleMeetingOnButtonClick(ActionEvent event) {
+    private void scheduleMeetingOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/ScheduleMeeting.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void assignTaskOnButtonClick(ActionEvent event) {
+    private void assignTaskOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/AssignTask.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
     
 }
