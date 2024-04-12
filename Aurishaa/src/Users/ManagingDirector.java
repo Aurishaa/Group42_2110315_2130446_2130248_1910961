@@ -7,6 +7,7 @@ package Users;
 
 
 import Classes.Policy;
+import Classes.Task;
 import Common.AppendableObjectOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -128,9 +129,54 @@ public class ManagingDirector  extends User implements Serializable{
             
     
         }
-        }               
-           
         
+        
+   public static boolean assignTask(String taskDetails, LocalDate dueDate, String assignedTo)  {  
+          Task newTask = new Task(
+                taskDetails,
+                dueDate,
+                assignedTo);
+               
+                
+                
+        System.out.println("Task made:"+newTask.toString());
+
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+
+            f = new File("Task.bin");
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(newTask);
+            oos.close();
+            return true;
+            
+        } catch (IOException e) {
+            if(oos!=null){
+                try {
+                    oos.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ManagingDirector.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            System.out.println("Error writing Object to binary file");
+            return false;
+       
+        
+         }              
+   }
+}   
+       
     
     
         
