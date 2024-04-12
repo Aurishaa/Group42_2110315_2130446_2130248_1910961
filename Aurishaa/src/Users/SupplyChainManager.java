@@ -4,6 +4,7 @@
  */
 package Users;
 
+
 import Supplier.SupplierInformationTable;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -55,24 +56,23 @@ public class SupplyChainManager extends User implements Serializable{
         this.Group = Group;
     }
 
-    public static void viewSuppliers(String companyName, String contactPerson,String contactNumber){
+    public static ObservableList<SupplierInformationTable> viewSuppliers(){
         ObservableList<SupplierInformationTable> supplierData = FXCollections.observableArrayList();
-    }
-        Bill i;
+        SupplierInformationTable s;
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new FileInputStream("BillObjects.bin"));
+            ois = new ObjectInputStream(new FileInputStream("SupplierInformationTable.bin"));
             while (true) {
-                i = (Bill) ois.readObject();
-                System.out.println("The Bill u read: " + i.toString());
-                billList.add(i);
+                s = (SupplierInformationTable) ois.readObject();
+                System.out.println("The supplier Information you read: " + s.toString());
+                supplierData.add(s);
             }
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("File reading done");
         }
-        System.out.println(billList);
-        return billList;
-        
+        System.out.println(supplierData);
+        return supplierData;
+    }   
     }
     
 
