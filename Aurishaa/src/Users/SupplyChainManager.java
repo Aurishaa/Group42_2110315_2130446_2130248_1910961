@@ -21,7 +21,7 @@ import javafx.collections.ObservableList;
 public class SupplyChainManager extends User implements Serializable{
 
     public SupplyChainManager(String name, Integer ID, String password, String email, LocalDate DOB, String Group) {
-        super(name, ID, password, email, DOB, Group);
+        super(name, ID, password, email);
     }
 
     public String getName() {
@@ -48,13 +48,7 @@ public class SupplyChainManager extends User implements Serializable{
         this.email = email;
     }
 
-    public String getGroup() {
-        return Group;
-    }
-
-    public void setGroup(String Group) {
-        this.Group = Group;
-    }
+    
 
     public static ObservableList<SupplierInformationTable> viewSuppliers(){
         ObservableList<SupplierInformationTable> supplierData = FXCollections.observableArrayList();

@@ -75,7 +75,9 @@ public class Supplier extends User implements Serializable{
 
  
 
+
     public static void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
+
                    SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
   
 
@@ -98,8 +100,12 @@ public class Supplier extends User implements Serializable{
                 oos = new ObjectOutputStream(fos);               
             }
 
-             SupplierInformationTable newInformation = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
-             oos.writeObject(newInformation);
+
+            // SupplierInformationTable newInformation = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
+             
+
+             
+
 
              oos.writeObject(supplierInfo);
 

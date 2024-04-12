@@ -50,7 +50,7 @@ public class ViewSuppliersController implements Initializable {
          contactNumberTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactNumber"));
      
 
-    supplierInfoTableView.setItems(SupplyChainManager.viewSuppliers());
+   // supplierInfoTableView.setItems(SupplyChainManager.viewSuppliers());
 
     
     
@@ -60,8 +60,8 @@ public class ViewSuppliersController implements Initializable {
     private void viewSuppliersButtonMouseOnClicked(ActionEvent event) {
             
         ObservableList<SupplierInformationTable> supplierData = SupplyChainManager.viewSuppliers();
-        supplierInfoTableView.setItems(supplierData);
-          //SupplierInformationTable selectedsupplier= supplierInfoTableView.getSelectionModel().getSelectedItem();         
+       // supplierInfoTableView.setItems(supplierData);
+          SupplierInformationTable selectedsupplier= supplierInfoTableView.getSelectionModel().getSelectedItem();         
     }
 
     @FXML

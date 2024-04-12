@@ -19,6 +19,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -56,7 +60,11 @@ public class Supplier_InformationController implements Initializable {
 
     //ArrayList<Supplier>supplierList;
     @FXML
+
     //private Label supplierInfoLabel;
+
+   // private Label supplierInfoLabel;
+
     
     //private final ObservableList<SupplierInformationTable> supplierData = FXCollections.observableArrayList();
     @Override
