@@ -1,7 +1,7 @@
 
 package SupplyChainManager;
 
-
+import Users.Supplier;
 import Supplier.SupplierInformationTable;
 import Users.SupplyChainManager;
 import java.io.IOException;
@@ -50,7 +50,7 @@ public class ViewSuppliersController implements Initializable {
          contactNumberTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactNumber"));
      
 
-   // supplierInfoTableView.setItems(SupplyChainManager.viewSuppliers());
+   supplierInfoTableView.setItems(SupplyChainManager.viewSuppliers());
 
     
     
@@ -59,9 +59,9 @@ public class ViewSuppliersController implements Initializable {
     @FXML
     private void viewSuppliersButtonMouseOnClicked(ActionEvent event) {
             
-        ObservableList<SupplierInformationTable> supplierData = SupplyChainManager.viewSuppliers();
+        ObservableList<SupplierInformationTable> supplierInfo = SupplyChainManager.viewSuppliers();
        // supplierInfoTableView.setItems(supplierData);
-          SupplierInformationTable selectedsupplier= supplierInfoTableView.getSelectionModel().getSelectedItem();         
+          SupplierInformationTable supplier= supplierInfoTableView.getSelectionModel().getSelectedItem();         
     }
 
     @FXML
