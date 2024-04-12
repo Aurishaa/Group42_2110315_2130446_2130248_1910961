@@ -8,7 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< Updated upstream
     <jar href="Group42_Pharmacy_2110315_2130446_2130248_1910961.jar" size="523675" download="eager" />
+=======
+    <jar href="Group42_Pharmacy_2110315_2130446_2130248_1910961.jar" size="519960" download="eager" />
+>>>>>>> Stashed changes
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="mainpkg.MainApplicationClass"  name="Group42_Pharmacy_2110315_2130446_2130248_1910961" />
   <update check="always"/>
