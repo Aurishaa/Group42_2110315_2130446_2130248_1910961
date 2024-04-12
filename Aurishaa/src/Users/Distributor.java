@@ -4,6 +4,7 @@
  */
 package Users;
 import Classes.Feedback;
+import Classes.SampleProduct;
 import Common.AppendableObjectOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -107,4 +108,48 @@ public class Distributor extends User implements Serializable {
         }
     }
     
+     
+      public static boolean requestProductSample(String productName, int quantity, String email, int number, String address){
+        
+        SampleProduct newSampleProduct = new SampleProduct(
+               productName,quantity, email,number,address
+                );
+               
+                
+                
+        System.out.println("Request sent:"+newSampleProduct.toString());
+
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+
+            f = new File("SampleProduct.bin");
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(newSampleProduct);
+            oos.close();
+            return true;
+            
+        } catch (IOException e) {
+            if(oos!=null){
+                try {
+                    oos.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Distributor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            System.out.println("Error writing Object to binary file");
+            return false;
+       
+        }
+   }  
 }
