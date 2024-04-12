@@ -7,15 +7,20 @@ package Users;
 
 
 import Classes.Policy;
+import Classes.Task;
 import Common.AppendableObjectOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class ManagingDirector  extends User implements Serializable{
@@ -68,7 +73,7 @@ public class ManagingDirector  extends User implements Serializable{
   
      
     
-    public void createPolicy( String policyTitle, String policyDetails,LocalDate policyEffectiveDate){ 
+    public static void createPolicy( String policyTitle, String policyDetails,LocalDate policyEffectiveDate){ 
         
              Policy newPolicy = new Policy(policyTitle,  policyDetails,  policyEffectiveDate);
              File f = null;
@@ -104,10 +109,74 @@ public class ManagingDirector  extends User implements Serializable{
 
          
     }
-                
-}               
-           
+       
+        public static ObservableList<Policy> editPolicy() {
+        ObservableList<Policy> policyList = FXCollections.observableArrayList();
+        Policy p;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("Policy.bin"));
+            while (true) {
+                p = (Policy) ois.readObject();
+                System.out.println("The policy you read: " + p.toString());
+                policyList.add(p);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(policyList);
+        return policyList;
+            
+    
+        }
         
+        
+   public static boolean assignTask(String taskDetails, LocalDate dueDate, String assignedTo)  {  
+          Task newTask = new Task(
+                taskDetails,
+                dueDate,
+                assignedTo);
+               
+                
+                
+        System.out.println("Task made:"+newTask.toString());
+
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+
+            f = new File("Task.bin");
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(newTask);
+            oos.close();
+            return true;
+            
+        } catch (IOException e) {
+            if(oos!=null){
+                try {
+                    oos.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ManagingDirector.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            System.out.println("Error writing Object to binary file");
+            return false;
+       
+        
+         }              
+   }
+}   
+       
     
     
         
