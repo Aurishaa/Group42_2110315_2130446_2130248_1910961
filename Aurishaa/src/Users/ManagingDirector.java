@@ -5,7 +5,7 @@
 package Users;
 
 
-
+import Classes.Meeting;
 import Classes.Policy;
 import Classes.Task;
 import Common.AppendableObjectOutputStream;
@@ -158,6 +158,52 @@ public class ManagingDirector  extends User implements Serializable{
             }
 
             oos.writeObject(newTask);
+            oos.close();
+            return true;
+            
+        } catch (IOException e) {
+            if(oos!=null){
+                try {
+                    oos.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ManagingDirector.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            System.out.println("Error writing Object to binary file");
+            return false;
+       
+        
+         }              
+   }
+   
+   
+    public static boolean scheduleMeeting(String meetingWith, LocalDate meetingDate, String meetingTime)  {  
+          Meeting newMeeting = new Meeting(
+                meetingWith,
+                meetingDate,
+                meetingTime);
+               
+                
+                
+        System.out.println("Meeting Scheduled:"+newMeeting.toString());
+
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+
+            f = new File("Meeting.bin");
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(newMeeting);
             oos.close();
             return true;
             
