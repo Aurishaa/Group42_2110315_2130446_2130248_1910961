@@ -48,7 +48,7 @@ public class LoginController implements Initializable {
                 "Pharmacist",
                 "Quality Control Manager",
                 "Supplier",
-                " Supply Chain Manager",
+                "Supply Chain Manager",
                 "Production Manager",
                 "Finance Manager");
     }    
@@ -181,7 +181,7 @@ public class LoginController implements Initializable {
                 while (true) {
                     p = (User) ois.readObject();
                     if (String.valueOf(p.getID()).equals(idTextField.getText()) && p.getPassword().equals(pwPasswordField.getText())) {
-                        Parent A = FXMLLoader.load(getClass().getResource("SupplyChainManagerdashboard.fxml"));
+                        Parent A = FXMLLoader.load(getClass().getResource("/SupplyChainManager/SupplyChainManager_Dashboard.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(sceneA);                      
