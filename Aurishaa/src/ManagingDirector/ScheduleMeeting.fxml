@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lavender;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManagingDirector.ScheduleMeetingController">
+   <children>
+      <Label layoutX="170.0" layoutY="36.0" prefHeight="41.0" prefWidth="272.0" text="Schedule Meeting">
+         <font>
+            <Font name="Arial Bold Italic" size="28.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="userComboBox" layoutX="24.0" layoutY="98.0" prefHeight="31.0" prefWidth="204.0" promptText="Meeting with.." />
+      <DatePicker fx:id="meetingdateDatePicker" layoutX="24.0" layoutY="151.0" prefHeight="31.0" prefWidth="204.0" promptText="Choose Date" />
+      <TextField fx:id="meetingTimeTextField" layoutX="24.0" layoutY="200.0" prefHeight="31.0" prefWidth="204.0" promptText="Meeting Time" />
+      <TableView fx:id="meetingDetailsTableView" layoutX="266.0" layoutY="100.0" prefHeight="200.0" prefWidth="325.0">
+        <columns>
+          <TableColumn fx:id="meetingWithTableColumn" prefWidth="135.0" text="Meeting With" />
+          <TableColumn fx:id="meetingDateTableColumn" prefWidth="89.0" text="Date" />
+            <TableColumn fx:id="meetingTimeTableColumn" prefWidth="97.0" text="Time" />
+        </columns>
+      </TableView>
+      <Button layoutX="514.0" layoutY="333.0" mnemonicParsing="false" onAction="#goBackToDashboardOnBUttonClick" text="Back" />
+      <Button layoutX="73.0" layoutY="259.0" mnemonicParsing="false" onAction="#addMeetingToTableOnButtonClick" prefHeight="31.0" prefWidth="89.0" text="Add" />
+   </children>
+</AnchorPane>

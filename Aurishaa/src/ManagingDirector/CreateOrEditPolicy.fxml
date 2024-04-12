@@ -6,15 +6,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="275.0" prefWidth="364.0" style="-fx-background-color: lavender;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="292.0" prefWidth="413.0" style="-fx-background-color: lavender;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManagingDirector.CreateOrEditPolicyController">
    <children>
-      <Label layoutX="27.0" layoutY="76.0" prefHeight="21.0" prefWidth="380.0" text="Do you want to ....?">
+      <Label layoutX="54.0" layoutY="33.0" prefHeight="26.0" prefWidth="302.0" text="Do you want to ....?">
          <font>
-            <Font name="Baskerville Old Face" size="21.0" />
+            <Font name="Arial Black" size="21.0" />
          </font>
       </Label>
-      <RadioButton layoutX="27.0" layoutY="128.0" mnemonicParsing="false" text="Create a new policy" />
-      <RadioButton layoutX="27.0" layoutY="179.0" mnemonicParsing="false" text="Edit an existing policy" />
-      <Button layoutX="328.0" layoutY="219.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Next" />
+      <RadioButton fx:id="createPolicyRadioButton" layoutX="54.0" layoutY="93.0" mnemonicParsing="false" text="Create a new policy">
+         <font>
+            <Font size="20.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="editPolicyRadioButton" layoutX="54.0" layoutY="138.0" mnemonicParsing="false" text="Edit an existing policy">
+         <font>
+            <Font size="19.0" />
+         </font></RadioButton>
+      <Button layoutX="321.0" layoutY="231.0" mnemonicParsing="false" onAction="#goToNextSceneButtonOnClick" prefHeight="39.0" prefWidth="70.0" style="-fx-background-color: white;" text="Next" />
+      <Button layoutX="26.0" layoutY="231.0" mnemonicParsing="false" onAction="#goBackToDashboardButtonOnClick" prefHeight="39.0" prefWidth="61.0" style="-fx-background-color: white;" text="Back" />
    </children>
 </AnchorPane>
