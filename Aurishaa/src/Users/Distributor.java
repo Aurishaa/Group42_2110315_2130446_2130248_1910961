@@ -4,7 +4,7 @@
  */
 package Users;
 import Classes.Feedback;
-import Classes.SampleProduct;
+import Classes.ProductSample;
 import Common.AppendableObjectOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -106,25 +106,23 @@ public class Distributor extends User implements Serializable {
             return false;
        
         }
-    }
-    
-     
-      public static boolean requestProductSample(String productName, int quantity, String email, int number, String address){
+     }
+     public static boolean requestProductSample(String productName, int quantity,String email, String number, String shippingAddress){
         
-        SampleProduct newSampleProduct = new SampleProduct(
-               productName,quantity, email,number,address
+        ProductSample newSample = new ProductSample(
+               productName,quantity,number,shippingAddress
                 );
                
                 
                 
-        System.out.println("Request sent:"+newSampleProduct.toString());
+        System.out.println("Sample Request:"+newSample.toString());
 
         File f = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
 
-            f = new File("SampleProduct.bin");
+            f = new File("ProductSample.bin");
 
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
@@ -135,7 +133,7 @@ public class Distributor extends User implements Serializable {
                 oos = new ObjectOutputStream(fos);
             }
 
-            oos.writeObject(newSampleProduct);
+            oos.writeObject(newSample);
             oos.close();
             return true;
             
@@ -147,9 +145,14 @@ public class Distributor extends User implements Serializable {
                     Logger.getLogger(Distributor.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            System.out.println("Error writing Object to binary file");
+           // System.out.println("Error writing Object to binary file");
             return false;
        
         }
-   }  
+     }    
+      
+     
+     
+     
+     
 }

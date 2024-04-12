@@ -3,11 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package Distributor;
-import Classes.SampleProduct;
+
 import Users.Distributor;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,16 +37,7 @@ public class RequestSampleProductController implements Initializable {
     private TextField emailTextField;
     @FXML
     private TextField numberTextField;
-    private Distributor distributor;
 
-    public Distributor getDistributor() {
-        return distributor;
-    }
-
-    public void setDistributor(Distributor distributor) {
-        this.distributor = distributor;
-    }
-    
     /**
      * Initializes the controller class.
      */
@@ -58,25 +48,24 @@ public class RequestSampleProductController implements Initializable {
 
     @FXML
     private void backToDashboardOnButtonClick(ActionEvent event) throws IOException {
-         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/ManagingDirectorDashboard.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/DistributorDashBoard.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
 
+   
 
     @FXML
     private void sendRequentOnButtonClick(ActionEvent event) {
-        
         String productName = productNameTextField.getText();
         int quantity = Integer.parseInt(quantityTextField.getText());
         String email  = emailTextField.getText();
-        int number=Integer.parseInt(numberTextField.getText());
-        String address=shippingAddressTextArea.getText();
-
-
-       if (productName.isEmpty() || quantity <= 0 || email.isEmpty() || number <= 0 || address.isEmpty()) {
+        String number=numberTextField.getText();
+        String shippingAddress=shippingAddressTextArea.getText();
+        
+       if (productName.isEmpty() || quantity <= 0 || email.isEmpty() || number.isEmpty() || shippingAddress.isEmpty()) {
        Alert alert = new Alert(Alert.AlertType.WARNING);
       alert.setTitle("Warning");
       alert.setHeaderText(null);
@@ -84,7 +73,7 @@ public class RequestSampleProductController implements Initializable {
       alert.showAndWait();
       return;
 }
-       Distributor.requestProductSample( productName,  quantity, email,  number,  address);
+       Distributor.requestProductSample( productName,  quantity,email, number, shippingAddress);
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Confirmation");
@@ -94,4 +83,9 @@ public class RequestSampleProductController implements Initializable {
     }
 }
 
+
+
+ 
+    
+    
 
