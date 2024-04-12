@@ -15,6 +15,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 
 public class Supplier extends User implements Serializable{
@@ -59,30 +66,50 @@ public class Supplier extends User implements Serializable{
         return "Supplier{" + "companyName=" + companyName + ", contactPerson=" + contactPerson + ", contactNumber=" + contactNumber + '}';
     }
 
-    public void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
+
+    
+
+
+   
+    
+
+ 
+
+    public static void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
+                   SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
+  
+
         File f = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
-
+         
         try {
+
             f = new File("SupplierInfo.bin");
+
+             f = new File("SupplierInformationTable.bin");
+
             if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
+                 fos = new FileOutputStream(f,true);
+                 oos= new AppendableObjectOutputStream(fos);                
             }
             else{
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);               
             }
+
              SupplierInformationTable newInformation = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
              oos.writeObject(newInformation);
+
+             oos.writeObject(supplierInfo);
+
              System.out.println("Supplier information written successfully!");
              
              
          
       
          
-         } 
+        } 
         catch (IOException ex) {
              Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -93,12 +120,16 @@ public class Supplier extends User implements Serializable{
                 } catch (IOException ex) {
                     Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+              
            
         }
     }
+
+    
     
     }
+    
+
 
 
 

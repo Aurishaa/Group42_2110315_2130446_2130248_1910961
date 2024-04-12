@@ -4,11 +4,14 @@ package Supplier;
 
 
 //import Users.Supplier;
+
+
+
+import Users.Supplier;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,12 +19,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import javafx.fxml.FXMLLoader;
+
+import javafx.fxml.FXMLLoader;
 
 
 public class Supplier_InformationController implements Initializable {
@@ -33,12 +39,26 @@ public class Supplier_InformationController implements Initializable {
     @FXML    private TableColumn<SupplierInformationTable, String> companyNameTableColumn;
     @FXML    private TableColumn<SupplierInformationTable, String> contactPersonTableColumn;
     @FXML    private TableColumn<SupplierInformationTable, String> contactNumberTableColumn;
+
 //private Supplier supplier;
+
+    
+    public Supplier supplier;
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+   
+
     //ArrayList<Supplier>supplierList;
     @FXML
-    private Label supplierInfoLabel;
+    //private Label supplierInfoLabel;
     
-    private ObservableList<SupplierInformationTable> supplierData = FXCollections.observableArrayList();
+    //private final ObservableList<SupplierInformationTable> supplierData = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        // supplierList=new ArrayList<Supplier>();
@@ -48,7 +68,7 @@ public class Supplier_InformationController implements Initializable {
        contactPersonTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactPerson"));
        contactNumberTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactNumber"));
        
-      supplierInfoTableView.setItems(supplierData); 
+      //supplierInfoTableView.setItems(supplierData); 
        
     }    
 
@@ -59,13 +79,13 @@ public class Supplier_InformationController implements Initializable {
         String contactNumber=contactNumberTextField.getText();
         
         
-        SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson, contactNumber);
-        supplierData.add(supplierInfo);
+        //SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson, contactNumber);
+        //supplierData.add(supplierInfo);
         
        // supplierList.add(newSupplier);
                
-        //supplierInfoTableView.getItems().add(new SupplierInformationTable(companyName, contactPerson, contactNumber )
-        //);
+        supplierInfoTableView.getItems().add(new SupplierInformationTable(companyName, contactPerson, contactNumber )
+        );
                  
                
                           
@@ -84,6 +104,9 @@ public class Supplier_InformationController implements Initializable {
         //        + "Contact Person: " + contactPerson + "\n\n"
           //      + "Contact Number: " + contactNumber + "\n\n";
         //supplierInfoLabel.setText(supplierInfo);
+        //SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson, contactNumber);
+        //supplierData.SupplierInformationTable(supplierInfo);
+        
     }
 
     @FXML
