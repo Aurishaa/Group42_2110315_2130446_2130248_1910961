@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Group42_Pharmacy_2110315_2130446_2130248_1910961.jnlp">
   <information>
@@ -13,3 +14,6 @@
   <jfx:javafx-desc  width="800" height="600" main-class="mainpkg.MainApplicationClass"  name="Group42_Pharmacy_2110315_2130446_2130248_1910961" />
   <update check="always"/>
 </jnlp>
+=======
+
+>>>>>>> Marcel
