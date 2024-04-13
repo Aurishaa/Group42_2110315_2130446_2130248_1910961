@@ -5,18 +5,9 @@
 package Users;
 
 
-<<<<<<< Updated upstream
-import Classes.Policy;
-import Common.AppendableObjectOutputStream;
-import Supplier.SupplierInformationTable;
-import SupplyChainManager.Budget;
-=======
 import Classes.Budget;
-import Classes.SupplierInformationTable;
 import Common.AppendableObjectOutputStream;
-import java.io.EOFException;
-
->>>>>>> Stashed changes
+import Classes.SupplierInformationTable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -72,62 +63,55 @@ public class SupplyChainManager extends User implements Serializable{
         this.Group = Group;
     }
 
-    public static ObservableList<SupplierInformationTable> viewSuppliers() {
-    ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
-    File file = new File("SupplierInformationTable.bin");
+    
 
-    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-        while (true) {
-            SupplierInformationTable supplierInformationTable = (SupplierInformationTable) ois.readObject();
-            supplierInfo.add(supplierInformationTable);
+    public static ObservableList<SupplierInformationTable> viewSuppliers(){
+        ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
+        SupplierInformationTable s;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("SupplierInformationTable.bin"));
+            while (true) {
+                s = (SupplierInformationTable) ois.readObject();
+                System.out.println("The supplier Information you read: " + s.toString());
+                supplierInfo.add(s);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
         }
-    } catch (EOFException e) {
-        // Reached end of file, do nothing
-    } catch (IOException | ClassNotFoundException e) {
+        System.out.println(supplierInfo);
+        return supplierInfo;
+    } 
+    
+  public static void requestBudget(String department, int amount, LocalDate requestDate) {
+    Budget newBudget = new Budget(department, amount, requestDate);
+    File f = new File("Budget.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newBudget);
+    } catch (IOException e) {
         e.printStackTrace(); // Handle or log the exception
-    }
-
-    return supplierInfo;
-}
-
-    
-    
-    public static void requestBudget( String department, int amount,LocalDate requestDate){ 
-        
-             Budget newBudget = new Budget(department,  amount,  requestDate);
-             File f = null;
-             FileOutputStream fos = null;
-             ObjectOutputStream oos = null;
-            try {
-
-            f = new File("Budget.bin");
-
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
-            }
-
-            oos.writeObject(newBudget);
-            oos.close();
-           
-
-        } catch (IOException e) {
+    } finally {
+        try {
             if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(SupplyChainManager.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                oos.close();
             }
-            
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
     }
-
-         
-    }
-    }
-    
-
+  }
+}
