@@ -79,7 +79,12 @@ public class PharmacistSceneController implements Initializable {
 
 
     @FXML
-    private void searchMedicineOnMouseClick(ActionEvent event) {
+    private void searchMedicineOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Pharmacist/SearchMedicine.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show(); 
     }
 
     @FXML
@@ -96,11 +101,21 @@ public class PharmacistSceneController implements Initializable {
     }
 
     @FXML
-    private void setReminderOnMouseClick(ActionEvent event) {
+    private void setReminderOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Pharmacist/SetReminder.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show(); 
     }
 
     @FXML
-    private void researchProposalOnMouseClick(ActionEvent event) {
+    private void researchProposalOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Pharmacist/BudgetApproval.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();      
     }
 
     @FXML
