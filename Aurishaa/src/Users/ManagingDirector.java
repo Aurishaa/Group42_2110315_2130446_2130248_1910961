@@ -4,11 +4,12 @@
  */
 package Users;
 
-
+import Classes.Budget;
 import Classes.Meeting;
 import Classes.Policy;
 import Classes.Task;
 import Common.AppendableObjectOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -221,9 +222,42 @@ public class ManagingDirector  extends User implements Serializable{
         
          }              
    }
-}   
-       
+//       public static ObservableList<Budget> approveBudget() {
+//        ObservableList<Budget> budgetList = FXCollections.observableArrayList();
+//        Budget b;
+//        ObjectInputStream ois = null;
+//        try {
+//            ois = new ObjectInputStream(new FileInputStream("Budget.bin"));
+//            while (true) {
+//                b = (Budget) ois.readObject();
+//                System.out.println("The Budget you read: " + b.toString());
+//                budgetList.add(b);
+//            }
+//        } catch (IOException | ClassNotFoundException e) {
+//            System.out.println("File reading done");
+//        }
+//        System.out.println(budgetList);
+//        return budgetList;
+//            
+//    
+//        }  
     
-    
-        
-   
+  
+  public static ObservableList<Budget> approveBudget() {
+    ObservableList<Budget> budgetList = FXCollections.observableArrayList();
+    File file = new File("Budget.bin");
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Budget budget = (Budget) ois.readObject();
+            budgetList.add(budget);
+        }
+    } catch (EOFException e) {
+        // Reached end of file, do nothing
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace(); // Handle or log the exception
+    }
+
+    return budgetList;
+}
+}
