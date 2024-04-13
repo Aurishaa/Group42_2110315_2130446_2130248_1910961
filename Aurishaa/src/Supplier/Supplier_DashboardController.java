@@ -42,7 +42,7 @@ public class Supplier_DashboardController implements Initializable {
 
     @FXML
     private void incomingOrdersButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("IncomingOrders.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/IncomingOrders.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -51,7 +51,7 @@ public class Supplier_DashboardController implements Initializable {
 
     @FXML
     private void orderListButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Order_List.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/Order_List.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -69,7 +69,7 @@ public class Supplier_DashboardController implements Initializable {
 
     @FXML
     private void processPaymentButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Process_Payment.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/Process_Payment.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -87,7 +87,7 @@ public class Supplier_DashboardController implements Initializable {
 
     @FXML
     private void supplyReportButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Supply_Report.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/Supply_Report.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);

@@ -5,10 +5,18 @@
 package Users;
 
 
+<<<<<<< Updated upstream
 import Classes.Policy;
 import Common.AppendableObjectOutputStream;
 import Supplier.SupplierInformationTable;
 import SupplyChainManager.Budget;
+=======
+import Classes.Budget;
+import Classes.SupplierInformationTable;
+import Common.AppendableObjectOutputStream;
+import java.io.EOFException;
+
+>>>>>>> Stashed changes
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -64,25 +72,25 @@ public class SupplyChainManager extends User implements Serializable{
         this.Group = Group;
     }
 
-    
+    public static ObservableList<SupplierInformationTable> viewSuppliers() {
+    ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
+    File file = new File("SupplierInformationTable.bin");
 
-    public static ObservableList<SupplierInformationTable> viewSuppliers(){
-        ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
-        SupplierInformationTable s;
-        ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(new FileInputStream("SupplierInformationTable.bin"));
-            while (true) {
-                s = (SupplierInformationTable) ois.readObject();
-                System.out.println("The supplier Information you read: " + s.toString());
-                supplierInfo.add(s);
-            }
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("File reading done");
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            SupplierInformationTable supplierInformationTable = (SupplierInformationTable) ois.readObject();
+            supplierInfo.add(supplierInformationTable);
         }
-        System.out.println(supplierInfo);
-        return supplierInfo;
-    } 
+    } catch (EOFException e) {
+        // Reached end of file, do nothing
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace(); // Handle or log the exception
+    }
+
+    return supplierInfo;
+}
+
+    
     
     public static void requestBudget( String department, int amount,LocalDate requestDate){ 
         

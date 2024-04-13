@@ -5,8 +5,8 @@
 package Users;
 
 import Common.AppendableObjectOutputStream;
+import Classes.SupplierInformationTable;
 
-import Supplier.SupplierInformationTable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -95,49 +95,46 @@ public class Supplier extends User implements Serializable{
     }
 
    
-    
+   public static void supplierInformation(String companyName, String contactPerson, String contactNumber) {
+    SupplierInformationTable newSupplierInformationTable = new SupplierInformationTable(companyName, contactPerson, contactNumber);
+    File f = new File("SupplierInformationTable.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newSupplierInformationTable);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
 
  
 
-  public static void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
-                   SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
   
-        File f = null;
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-
-        try {
-            f = new File("SupplierInformationTable.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
-             oos.writeObject(supplierInfo);
-             System.out.println("Supplier information written successfully!");
-             
              
          
       
          
-         } 
-        catch (IOException ex) {
-             Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally {
-            
-                if (oos != null) try {
-                    oos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-           
-        }
-    }
+       
     
     }
 
