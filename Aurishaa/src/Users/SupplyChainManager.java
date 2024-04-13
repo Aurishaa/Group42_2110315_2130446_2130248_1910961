@@ -5,12 +5,20 @@
 package Users;
 
 
+import Classes.Policy;
+import Common.AppendableObjectOutputStream;
 import Supplier.SupplierInformationTable;
+import SupplyChainManager.Budget;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -74,7 +82,44 @@ public class SupplyChainManager extends User implements Serializable{
         }
         System.out.println(supplierInfo);
         return supplierInfo;
-    }   
+    } 
+    
+    public static void requestBudget( String department, int amount,LocalDate requestDate){ 
+        
+             Budget newBudget = new Budget(department,  amount,  requestDate);
+             File f = null;
+             FileOutputStream fos = null;
+             ObjectOutputStream oos = null;
+            try {
+
+            f = new File("Budget.bin");
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(newBudget);
+            oos.close();
+           
+
+        } catch (IOException e) {
+            if (oos != null) {
+                try {
+                    oos.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(SupplyChainManager.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+    }
+
+         
+    }
     }
     
 
