@@ -4,11 +4,13 @@
  */
 package Classes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Lenovo
  */
-public class ProductSample {
+public class ProductSample implements Serializable {
     String productName;
     int quantity;
     String number;
