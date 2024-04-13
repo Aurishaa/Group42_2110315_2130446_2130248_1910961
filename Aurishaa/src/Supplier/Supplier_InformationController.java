@@ -48,7 +48,7 @@ public class Supplier_InformationController implements Initializable {
     @FXML
     //private Label supplierInfoLabel;
     
-    private ObservableList<SupplierInformationTable> supplierData = FXCollections.observableArrayList();
+    private ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        // supplierList=new ArrayList<Supplier>();
@@ -58,7 +58,7 @@ public class Supplier_InformationController implements Initializable {
        contactPersonTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactPerson"));
        contactNumberTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactNumber"));
        
-      supplierInfoTableView.setItems(supplierData); 
+      supplierInfoTableView.setItems(supplierInfo); 
        
     }    
 
@@ -69,14 +69,14 @@ public class Supplier_InformationController implements Initializable {
         String contactNumber=contactNumberTextField.getText();
         
         
-        SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson, contactNumber);
-        supplierData.add(supplierInfo);
+        //SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson, contactNumber);
+        //supplierData.add(supplierInfo);
         
         
        // supplierList.add(newSupplier);
                
-        //supplierInfoTableView.getItems().add(new SupplierInformationTable(companyName, contactPerson, contactNumber )
-        //);
+        supplierInfoTableView.getItems().add(new SupplierInformationTable(companyName, contactPerson, contactNumber )
+        );
                  
                
                           

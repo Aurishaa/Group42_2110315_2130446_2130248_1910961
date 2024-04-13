@@ -7,6 +7,7 @@ import Users.SupplyChainManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -33,6 +35,7 @@ public class ViewSuppliersController implements Initializable {
     }
       
 
+    
     @FXML
     private TableView<SupplierInformationTable> supplierInfoTableView;
     @FXML
@@ -42,7 +45,7 @@ public class ViewSuppliersController implements Initializable {
     @FXML
     private TableColumn<SupplierInformationTable, String> contactNumberTableColumn;
 
-    
+    private ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          companyNameTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("companyName"));
@@ -60,8 +63,11 @@ public class ViewSuppliersController implements Initializable {
     private void viewSuppliersButtonMouseOnClicked(ActionEvent event) {
             
         ObservableList<SupplierInformationTable> supplierInfo = SupplyChainManager.viewSuppliers();
-       // supplierInfoTableView.setItems(supplierData);
-          SupplierInformationTable supplier= supplierInfoTableView.getSelectionModel().getSelectedItem();         
+       //supplierInfoTableView.setItems(supplierInfo);
+       //supplierInfoTableView.setItems(SupplyChainManager.viewSuppliers());
+       
+        SupplierInformationTable supplierInformationtable= supplierInfoTableView.getSelectionModel().getSelectedItem();
+          
     }
 
     @FXML

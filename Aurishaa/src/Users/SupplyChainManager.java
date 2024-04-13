@@ -59,7 +59,7 @@ public class SupplyChainManager extends User implements Serializable{
     
 
     public static ObservableList<SupplierInformationTable> viewSuppliers(){
-        ObservableList<SupplierInformationTable> supplierData = FXCollections.observableArrayList();
+        ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
         SupplierInformationTable s;
         ObjectInputStream ois = null;
         try {
@@ -67,13 +67,13 @@ public class SupplyChainManager extends User implements Serializable{
             while (true) {
                 s = (SupplierInformationTable) ois.readObject();
                 System.out.println("The supplier Information you read: " + s.toString());
-                supplierData.add(s);
+                supplierInfo.add(s);
             }
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("File reading done");
         }
-        System.out.println(supplierData);
-        return supplierData;
+        System.out.println(supplierInfo);
+        return supplierInfo;
     }   
     }
     
