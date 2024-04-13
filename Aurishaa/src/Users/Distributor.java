@@ -3,19 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Users;
-import Classes.Cart;
+
 import Classes.Feedback;
+import Classes.Product;
 import Classes.ProductSample;
 
 import Common.AppendableObjectOutputStream;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Distributor extends User implements Serializable {
@@ -145,52 +151,81 @@ public static void requestProductSample(String productName, int quantity, String
     
         
         
-        
-         
-      
-     
-    public static void placeOrder(String productName, int quantity, float unitPrice, float totalPrice){
-        
-        Cart newOrder = new Cart(
-               productName,quantity,unitPrice,totalPrice
-                );
-               
-                
-                
-        System.out.println("Order placed:"+newOrder.toString());
+   
 
-        File f = null;
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        try {
 
-            f = new File("Cart.bin");
+public static void placeOrder(String productName, int quantity, float unitPrice, float totalPrice) {
+    Product newProduct = new Product(
+            productName, quantity, unitPrice, totalPrice
+    );
 
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
+    System.out.println("Order placed:" + newProduct.toString());
 
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
+    File f = null;
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+    try {
+
+        f = new File("Product.bin");
+
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true);
+            oos = new AppendableObjectOutputStream(fos);
+
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newProduct);
+        oos.close();
+
+
+    } catch (IOException e) {
+        if (oos != null) {
+            try {
+                oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Distributor.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        System.out.println("Error writing Object to binary file");
 
-            oos.writeObject(newOrder);
-            oos.close();
-            
-            
-        } catch (IOException e) {
-            if(oos!=null){
-                try {
-                    oos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Distributor.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            System.out.println("Error writing Object to binary file");
-            
-       
-        } 
-     
+
     }
 }
+
+ 
+    
+
+
+
+    
+    public static ObservableList<Product> returnProduct() {
+    ObservableList<Product> productItem = FXCollections.observableArrayList();
+    File file = new File("Product.bin");
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Product  newProduct= (Product) ois.readObject();
+            productItem.add(newProduct);
+        }
+    } catch (EOFException e) {
+        // Reached end of file, do nothing
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace(); // Handle or log the exception
+    }
+
+    return productItem;
+}
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+
+

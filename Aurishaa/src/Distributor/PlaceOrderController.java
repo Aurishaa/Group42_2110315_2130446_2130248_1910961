@@ -4,7 +4,7 @@
  */
 package Distributor;
 
-import Classes.Cart;
+import Classes.Product;
 import Users.Distributor;
 import java.io.IOException;
 import java.net.URL;
@@ -38,15 +38,15 @@ public class PlaceOrderController implements Initializable {
     @FXML
     private Label unitPriceLabel;
     @FXML
-    private TableView<Cart> productDetailsTableView;
+    private TableView<Product> productDetailsTableView;
     @FXML
-    private TableColumn<Cart, String> productNameTableColumn;
+    private TableColumn<Product, String> productNameTableColumn;
     @FXML
-    private TableColumn<Cart,Integer> productQuantityTableColumn;
+    private TableColumn<Product,Integer> productQuantityTableColumn;
     @FXML
-    private TableColumn<Cart, Float> productUnitPriceTableColumn;
+    private TableColumn<Product, Float> productUnitPriceTableColumn;
     @FXML
-    private TableColumn<Cart, Float> totalPriceTableColumn;
+    private TableColumn<Product, Float> totalPriceTableColumn;
     @FXML
     private TextField productQuantityTextField;
     @FXML
@@ -60,7 +60,7 @@ public class PlaceOrderController implements Initializable {
     public void setDistributor(Distributor distributor) {
         this.distributor = distributor;
     }
-    private ObservableList<Cart> cartItems = FXCollections.observableArrayList();
+    private ObservableList<Product> productInfo = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -101,14 +101,14 @@ private void addToCartOnButtonClicked(ActionEvent event) {
     int quantity = Integer.parseInt(productQuantityTextField.getText());
     float unitPrice = Float.parseFloat(unitPriceLabel.getText());
 
-    Cart cartItem = new Cart(productName, quantity, unitPrice, 0.0f);
+    Product productItem = new Product(productName, quantity, unitPrice, 0.0f);
 
-    float totalPrice = cartItem.findTotalPrice();
-    cartItem.setTotalPrice(totalPrice);
+    float totalPrice = productItem.findTotalPrice();
+    productItem.setTotalPrice(totalPrice);
 
-    cartItems.add(cartItem);
+    productInfo.add(productItem);
 
-    productDetailsTableView.setItems(cartItems);
+    productDetailsTableView.setItems(productInfo);
    
     Distributor.placeOrder(productName,quantity,unitPrice,totalPrice);
 }
