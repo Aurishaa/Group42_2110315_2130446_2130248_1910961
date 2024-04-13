@@ -60,7 +60,7 @@ public class Supplier_DashboardController implements Initializable {
 
     @FXML
     private void suppliedProductsButtonMouseOnClicked(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Supplied_Products.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/Supplied_Products.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
