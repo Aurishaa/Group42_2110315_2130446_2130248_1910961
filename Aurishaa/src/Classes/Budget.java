@@ -1,5 +1,5 @@
 
-package SupplyChainManager;
+package Classes;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -9,9 +9,7 @@ public class Budget implements Serializable {
     private int amount;
     private LocalDate requestDate;
 
-    public Budget() {
-    }
-
+  
     public Budget(String department, int amount, LocalDate requestDate) {
         this.department = department;
         this.amount = amount;

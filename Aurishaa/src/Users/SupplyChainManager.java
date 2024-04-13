@@ -5,10 +5,9 @@
 package Users;
 
 
-import Classes.Policy;
+import Classes.Budget;
 import Common.AppendableObjectOutputStream;
 import Supplier.SupplierInformationTable;
-import SupplyChainManager.Budget;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -84,42 +83,35 @@ public class SupplyChainManager extends User implements Serializable{
         return supplierInfo;
     } 
     
-    public static void requestBudget( String department, int amount,LocalDate requestDate){ 
-        
-             Budget newBudget = new Budget(department,  amount,  requestDate);
-             File f = null;
-             FileOutputStream fos = null;
-             ObjectOutputStream oos = null;
-            try {
+  public static void requestBudget(String department, int amount, LocalDate requestDate) {
+    Budget newBudget = new Budget(department, amount, requestDate);
+    File f = new File("Budget.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
 
-            f = new File("Budget.bin");
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
 
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
-            }
-
-            oos.writeObject(newBudget);
-            oos.close();
-           
-
-        } catch (IOException e) {
+        oos.writeObject(newBudget);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
             if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(SupplyChainManager.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                oos.close();
             }
-            
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
     }
-
-         
-    }
-    }
-    
-
+  }
+}
