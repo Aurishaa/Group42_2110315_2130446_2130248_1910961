@@ -47,16 +47,7 @@ public class ApproveBudgetController implements Initializable {
     public void setManagingDirector(ManagingDirector managingDirector) {
         this.managingDirector = managingDirector;
     }
-//    
-//    private SupplyChainManager supplyChainManager;
-//
-//    public SupplyChainManager getSupplyChainManager() {
-//        return supplyChainManager;
-//    }
-//
-//    public void setSupplyChainManager(SupplyChainManager supplyChainManager) {
-//        this.supplyChainManager = supplyChainManager;
-//    }
+
     
 
     

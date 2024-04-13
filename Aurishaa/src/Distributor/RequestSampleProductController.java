@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package Distributor;
-
+import Classes.ProductSample;
 import Users.Distributor;
 import java.io.IOException;
 import java.net.URL;
