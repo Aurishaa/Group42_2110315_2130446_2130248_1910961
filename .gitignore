@@ -10,3 +10,5 @@ Aurishaa/dist/Group42_Pharmacy_2110315_2130446_2130248_1910961.html
 Aurishaa/build/built-jar.properties
 Aurishaa/dist/Group42_Pharmacy_2110315_2130446_2130248_1910961.html
 Aurishaa/dist/Group42_Pharmacy_2110315_2130446_2130248_1910961.jnlp
+*.jnlp
+*.properties
