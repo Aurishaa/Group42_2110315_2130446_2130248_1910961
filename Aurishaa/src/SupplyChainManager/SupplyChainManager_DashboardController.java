@@ -44,7 +44,7 @@ public class SupplyChainManager_DashboardController implements Initializable {
 
     @FXML
     private void budgetApproveButtonMouseOnClicked(ActionEvent event)  throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Budget_Approval.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("BudgetApprovalRequest.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
