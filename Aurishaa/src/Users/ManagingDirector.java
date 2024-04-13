@@ -4,11 +4,12 @@
  */
 package Users;
 
-
+import Classes.Budget;
 import Classes.Meeting;
 import Classes.Policy;
 import Classes.Task;
 import Common.AppendableObjectOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -220,10 +221,23 @@ public class ManagingDirector  extends User implements Serializable{
        
         
          }              
-   }
-}   
-       
-    
-    
-        
-   
+  
+    }
+  public static ObservableList<Budget> approveBudget() {
+    ObservableList<Budget> budgetList = FXCollections.observableArrayList();
+    File file = new File("Budget.bin");
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Budget budget = (Budget) ois.readObject();
+            budgetList.add(budget);
+        }
+    } catch (EOFException e) {
+        // Reached end of file, do nothing
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace(); // Handle or log the exception
+    }
+
+    return budgetList;
+}
+}
