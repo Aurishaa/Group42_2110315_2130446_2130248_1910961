@@ -1,6 +1,6 @@
 
 package SupplyChainManager;
-
+import Classes.Budget;
 import Users.SupplyChainManager;
 import java.io.IOException;
 import java.net.URL;
@@ -64,7 +64,7 @@ public class BudgetApprovalRequestController implements Initializable {
         
 }
 
-        supplyChainManager.requestBudget(department, amount , requestDate);
+        SupplyChainManager.requestBudget(department, amount , requestDate);
     
         String budgetInfo = "Name of Department: " + department + "\n\n"
                 + "Amount for Budget: " + amount + "\n\n"

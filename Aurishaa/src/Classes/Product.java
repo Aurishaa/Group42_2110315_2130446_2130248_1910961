@@ -7,26 +7,23 @@ package Classes;
 import java.io.Serializable;
 
 
-public class OrderedProducts implements Serializable {
-    private String productName;
-    private Integer quantity;
-    private float unitPrice;
-    private float totalPrice;
+ 
 
-    public OrderedProducts(String productName, Integer quantity, float unitPrice,float totalPrice) {
+
+public class Product implements Serializable {
+ 
+    private String productName;
+    private int quantity;
+    private float unitPrice;
+    private float totalPrice; 
+
+    public Product(String productName, int quantity, float unitPrice, float totalPrice) {
         this.productName = productName;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
-        this.totalPrice= quantity * unitPrice;
-    }
-
-    public float getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
     }
+    
 
     public String getProductName() {
         return productName;
@@ -36,11 +33,11 @@ public class OrderedProducts implements Serializable {
         this.productName = productName;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -52,10 +49,26 @@ public class OrderedProducts implements Serializable {
         this.unitPrice = unitPrice;
     }
 
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     @Override
     public String toString() {
-        return "OrderedProducts{" + "productName=" + productName + ", quantity=" + quantity + ", unitPrice=" + unitPrice + '}';
+        return "Product{" + "productName=" + productName + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", totalPrice=" + totalPrice + '}';
     }
+
     
     
+    
+    public float findTotalPrice(){
+       float total= this.quantity * this.unitPrice;
+       return total;
+    }
 }
+
+

@@ -30,8 +30,6 @@ public class PharmacistSceneController implements Initializable {
     @FXML
     private Button addNewMedicineButton;
     @FXML
-    private Button checkStockButton;
-    @FXML
     private Button searchMedicineButton;
     @FXML
     private Button distributeMedicineButton;
@@ -41,6 +39,8 @@ public class PharmacistSceneController implements Initializable {
     private Button setReminderButton;
     @FXML
     private Button researchProposalButton;
+    @FXML
+    private Button addStockButton;
 
     /**
      * Initializes the controller class.
@@ -51,11 +51,21 @@ public class PharmacistSceneController implements Initializable {
     }    
 
     @FXML
-    private void dashboardOnMouseClick(ActionEvent event) {
+    private void dashboardOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Pharmacist/PharmacistScene.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();   
     }
 
     @FXML
-    private void leaveRequestOnMouseClick(ActionEvent event) {
+    private void leaveRequestOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Pharmacist/LeaveRequest.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();         
     }
 
     @FXML
@@ -67,9 +77,6 @@ public class PharmacistSceneController implements Initializable {
         window.show();   
     }
 
-    @FXML
-    private void checkStockOnMouseClick(ActionEvent event) {
-    }
 
     @FXML
     private void searchMedicineOnMouseClick(ActionEvent event) {
@@ -94,6 +101,15 @@ public class PharmacistSceneController implements Initializable {
 
     @FXML
     private void researchProposalOnMouseClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void addStockOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Pharmacist/AddStock.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();         
     }
     
 }
