@@ -1,6 +1,5 @@
 package Pharmacist;
 
-import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,11 +8,6 @@ import javafx.scene.control.DatePicker;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 public class LeaveRequestController implements Initializable {
 
@@ -64,15 +58,6 @@ public class LeaveRequestController implements Initializable {
             LocalDate selectedDate = newValue;
             System.out.println("DatePicker 2 selected date: " + selectedDate);
         });
-    }
-
-    @FXML
-    private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Pharmacist/PharmacistScene.fxml"));
-        Scene scene1= new Scene(mainSceneParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();        
     }
 }
 

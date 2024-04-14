@@ -14,6 +14,16 @@
           <TableColumn fx:id="componentTC" prefWidth="411.0" text="Components" />
         </columns>
       </TableView>
+<<<<<<< HEAD
       <Button layoutX="762.0" layoutY="580.0" mnemonicParsing="false" text="Generate Report" />
+=======
+      <Button layoutX="428.0" layoutY="570.0" mnemonicParsing="false" onAction="#generateReportOnMouseClick" text="Generate Report" />
+      <Label layoutX="36.0" layoutY="51.0" text="Enter Medicine Name:" />
+      <TextField fx:id="medicineTextField" layoutX="203.0" layoutY="46.0" />
+      <Label layoutX="493.0" layoutY="51.0" text="Enter Components:" />
+      <TextField fx:id="componentTextField" layoutX="660.0" layoutY="46.0" />
+      <Button layoutX="243.0" layoutY="129.0" mnemonicParsing="false" onAction="#addToTableOnMouseClick" text="Add To Table" />
+      <Button layoutX="660.0" layoutY="129.0" mnemonicParsing="false" onAction="#clearTableOnMouseClick" text="Clear Table" />
+>>>>>>> parent of ff6163d (Merge branch 'Marcel')
    </children>
 </AnchorPane>
