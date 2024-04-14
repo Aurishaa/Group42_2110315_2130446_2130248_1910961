@@ -1,6 +1,6 @@
 
 package SupplyChainManager;
-
+import Classes.Budget;
 import Users.SupplyChainManager;
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
 import javafx.stage.Stage;
 
 
@@ -40,9 +41,7 @@ public class BudgetApprovalRequestController implements Initializable {
     @FXML
     private Label budgetInfoLabel;
 
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -64,7 +63,7 @@ public class BudgetApprovalRequestController implements Initializable {
         
 }
 
-        supplyChainManager.requestBudget(department, amount , requestDate);
+        SupplyChainManager.requestBudget(department, amount , requestDate);
     
         String budgetInfo = "Name of Department: " + department + "\n\n"
                 + "Amount for Budget: " + amount + "\n\n"
@@ -82,7 +81,8 @@ public class BudgetApprovalRequestController implements Initializable {
     }   
 
     @FXML
-    private void backButtonMouseOnClicked(ActionEvent event) throws IOException {Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/SupplyChainManager/SupplyChainManager_Dashboard.fxml"));
+    private void backButtonMouseOnClicked(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/SupplyChainManager/SupplyChainManager_Dashboard.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);

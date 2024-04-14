@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="669.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Supplier.AssignOrderStatusController">
+   <children>
+      <Label layoutX="179.0" layoutY="47.0" prefHeight="33.0" prefWidth="231.0" style="-fx-background-color: white; -fx-border-color: red;" text="     Assign Order Status" textFill="#c35d22">
+         <font>
+            <Font name="Arial Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="90.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Delivery ID:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="128.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Delivery Date:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="163.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Quantities:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="200.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Delivery Status:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="deliveryIdTextField" layoutX="151.0" layoutY="91.0" />
+      <TextField fx:id="quantitiesTextField" layoutX="151.0" layoutY="164.0" />
+      <DatePicker fx:id="deliveryDatePicker" layoutX="151.0" layoutY="129.0" />
+      <Label fx:id="statusInfoLabel" layoutX="38.0" layoutY="277.0" prefHeight="196.0" prefWidth="420.0" style="-fx-border-color: red;" />
+      <Button layoutX="560.0" layoutY="430.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="33.0" prefWidth="87.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="312.0" layoutY="236.0" mnemonicParsing="false" onAction="#confirmUpdateButtonMouseOnClicked" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Confirm Update">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="150.0" layoutY="236.0" mnemonicParsing="false" onAction="#updateStatusButtonMouseOnClicked" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Update status">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="statusComboBox" layoutX="151.0" layoutY="201.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

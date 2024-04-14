@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Users;
+import Classes.Cart;
 import Classes.Feedback;
+import Classes.ProductSample;
+
 import Common.AppendableObjectOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -105,6 +108,89 @@ public class Distributor extends User implements Serializable {
             return false;
        
         }
+     }
+public static void requestProductSample(String productName, int quantity, String email, String number, String shippingAddress) {
+    ProductSample newSample = new ProductSample(productName, quantity, number, shippingAddress);
+
+    File f = new File("ProductSample.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); 
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newSample);
+         System.out.println("Binary file written successfully");
+    } catch (IOException e) {
+        e.printStackTrace(); 
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
+}
     
+        
+        
+        
+         
+      
+     
+    public static void placeOrder(String productName, int quantity, float unitPrice, float totalPrice){
+        
+        Cart newOrder = new Cart(
+               productName,quantity,unitPrice,totalPrice
+                );
+               
+                
+                
+        System.out.println("Order placed:"+newOrder.toString());
+
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+
+            f = new File("Cart.bin");
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(newOrder);
+            oos.close();
+            
+            
+        } catch (IOException e) {
+            if(oos!=null){
+                try {
+                    oos.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Distributor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            System.out.println("Error writing Object to binary file");
+            
+       
+        } 
+     
+    }
 }

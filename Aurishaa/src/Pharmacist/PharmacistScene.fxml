@@ -16,7 +16,7 @@
       </Button>
       <Button fx:id="leaveRequestButton" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onAction="#leaveRequestOnMouseClick" text="LeaveRequest" />
       <Button fx:id="addNewMedicineButton" layoutX="14.0" layoutY="197.0" mnemonicParsing="false" onAction="#addNewMedicineOnMouseClick" text="AddNewMedicine" />
-      <Button fx:id="checkStockButton" layoutX="14.0" layoutY="250.0" mnemonicParsing="false" onAction="#checkStockOnMouseClick" text="CheckStock" />
+      <Button fx:id="addStockButton" layoutX="14.0" layoutY="250.0" mnemonicParsing="false" onAction="#addStockOnMouseClick" text="AddStock" />
       <Button fx:id="searchMedicineButton" layoutX="14.0" layoutY="305.0" mnemonicParsing="false" onAction="#searchMedicineOnMouseClick" text="SearchMedicine" />
       <Button fx:id="distributeMedicineButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#distributeMedicineOnMouseClick" text="DistributeMedicine" />
       <Button fx:id="generateReportButton" layoutX="14.0" layoutY="418.0" mnemonicParsing="false" onAction="#generateReportOnMouseClick" text="GenerateReport" />

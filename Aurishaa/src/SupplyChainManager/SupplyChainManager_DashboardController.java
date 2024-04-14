@@ -53,8 +53,8 @@ public class SupplyChainManager_DashboardController implements Initializable {
 
 
     @FXML
-    private void viewFeedbackButtonMouseOnClicked(ActionEvent event)  throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("View_Feedback.fxml"));
+    private void approveProductButtonMouseOnClicked(ActionEvent event)  throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Approve_Product.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -84,7 +84,7 @@ public class SupplyChainManager_DashboardController implements Initializable {
 
     @FXML
     private void manageProductsButtonMouseOnClicked(ActionEvent event)  throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Manage_Products.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("ManageOrders.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -101,5 +101,17 @@ public class SupplyChainManager_DashboardController implements Initializable {
         window.show();
     }
 
+    
+
+
+
+    @FXML
+    private void viewReportButtonMouseOnClicked(ActionEvent event) throws IOException {
+    Parent mainSceneParent = FXMLLoader.load(getClass().getResource("ViewReport.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
     
 }

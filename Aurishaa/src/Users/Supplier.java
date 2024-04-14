@@ -4,17 +4,27 @@
  */
 package Users;
 
+import Classes.Budget;
+import Classes.NewlyAddedProduct;
+import Classes.OrderStatus;
+import Classes.OrdersSCM;
+import Classes.SuppliedProduct;
 import Common.AppendableObjectOutputStream;
 import Classes.SupplierInformationTable;
+import Classes.Task;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Supplier extends User implements Serializable{
@@ -128,15 +138,129 @@ public class Supplier extends User implements Serializable{
   } 
 
  
+ public static void suppliedProduct(String productName, int quantity, LocalDate supplyDate,String productType) {
+    SuppliedProduct suppliedProduct = new SuppliedProduct(productName, quantity, supplyDate,productType);
+    File f = new File("SuppliedProduct.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
 
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(suppliedProduct);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+    
+    
   
              
-         
-      
-         
-       
-    
+}
+
+ public static ObservableList<OrdersSCM> viewIncomingOrders(){
+        ObservableList<OrdersSCM> OrderInfo = FXCollections.observableArrayList();
+        OrdersSCM o;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("OrdersSCM.bin"));
+            while (true) {
+                o = (OrdersSCM) ois.readObject();
+                System.out.println("The orders you read: " + o.toString());
+                OrderInfo.add(o);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(OrderInfo);
+        return OrderInfo;
+    } 
+public static ObservableList<Task> viewTask(){
+        ObservableList<Task> TaskInfo = FXCollections.observableArrayList();
+        Task t;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("Task.bin"));
+            while (true) {
+                t = (Task) ois.readObject();
+                System.out.println("The tasks you read: " + t.toString());
+                TaskInfo.add(t);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(TaskInfo);
+        return TaskInfo;
+    } 
+
+
+public static ObservableList<NewlyAddedProduct> viewNewProduct(){
+        ObservableList<NewlyAddedProduct> productInfo = FXCollections.observableArrayList();
+        NewlyAddedProduct n;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("NewlyaddedProduct.bin"));
+            while (true) {
+                n = (NewlyAddedProduct) ois.readObject();
+                System.out.println("The new products are: " + n.toString());
+                productInfo.add(n);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(productInfo);
+        return productInfo;
+    } 
+
+
+public static void orderStatus(int deliveryId, LocalDate deliveryDate, int quantities, String deliveryStatus) {
+    OrderStatus newOrderStatus = new OrderStatus(deliveryId, deliveryDate, quantities,deliveryStatus);
+    File f = new File("OrderStatus.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newOrderStatus);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
     }
+  } 
+}
 
 
 
