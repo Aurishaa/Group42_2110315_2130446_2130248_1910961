@@ -7,6 +7,8 @@ package Users;
 import Classes.Budget;
 import Classes.Meeting;
 import Classes.Policy;
+import Classes.SalesReport;
+
 import Classes.Task;
 import Common.AppendableObjectOutputStream;
 import java.io.EOFException;
@@ -132,11 +134,12 @@ public class ManagingDirector  extends User implements Serializable{
         }
         
         
-   public static boolean assignTask(String taskDetails, LocalDate dueDate, String assignedTo)  {  
+   public static boolean assignTask(String assignedTo, String taskDetails, LocalDate dueDate)  {  
           Task newTask = new Task(
+                assignedTo,
                 taskDetails,
-                dueDate,
-                assignedTo);
+                dueDate
+                );
                
                 
                 
@@ -240,4 +243,21 @@ public class ManagingDirector  extends User implements Serializable{
 
     return budgetList;
 }
+  
+ public static ObservableList<SalesReport> viewSalesReport() {
+    ObservableList<SalesReport> reportInfo = FXCollections.observableArrayList();
+    File file = new File("SalesReport.bin");
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            SalesReport  newReport= (SalesReport) ois.readObject();
+            reportInfo.add(newReport);
+        }
+    } catch (EOFException e) {
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    return reportInfo;  
+ }
 }

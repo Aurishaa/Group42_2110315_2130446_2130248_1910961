@@ -53,8 +53,7 @@ public class AddStockController implements Initializable {
         ProductName=productTextField.getText();
         UnitPrice=unitPriceTextField.getText();
         Availibility=availabilityTextField.getText();
-        
-        // TODO
+     
     }    
 
     @FXML

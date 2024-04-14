@@ -42,7 +42,7 @@ public class AssignTaskController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     userComboBox.getItems().addAll("Supply Chain Manager","Pharmacist","Quality Control Manager","Finance Manager","Production Manager");
+     userComboBox.getItems().addAll("Supply Chain Manager","Pharmacist","Quality Control Manager","Finance Manager","Production Manager","Distributor","Supplier");
     }    
 
     @FXML
@@ -57,11 +57,11 @@ public class AssignTaskController implements Initializable {
     @FXML
     private void assignTaskButtonOnClick(ActionEvent event) {
         String assignedTo = userComboBox.getValue(); 
-        LocalDate dueDate= duedateDatePicker.getValue();
         String taskDetails = taskDetailsTextArea.getText(); 
+        LocalDate dueDate= duedateDatePicker.getValue();
 
 
-        ManagingDirector.assignTask(assignedTo, dueDate, taskDetails);
+        ManagingDirector.assignTask(assignedTo, taskDetails, dueDate);
 
        
             Alert a = new Alert(Alert.AlertType.INFORMATION);

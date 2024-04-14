@@ -4,7 +4,6 @@
  */
 package Distributor;
 
-import Users.Distributor;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,13 +16,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
+/**
+ * FXML Controller class
+ *
+ * @author Lenovo
+ */
 public class DistributorDashboardController implements Initializable {
 
-   
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+        // TODO
     }    
 
     @FXML
@@ -38,6 +43,7 @@ public class DistributorDashboardController implements Initializable {
 
     @FXML
     private void viewInventoryOnButtonClick(ActionEvent event) {
+
     }
 
     @FXML
@@ -48,29 +54,55 @@ public class DistributorDashboardController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+    
 
     @FXML
-    private void returnProductOnButtonClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void salesReportOnButtonClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void goBackToDashboardButtonOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void provideFeedbackOnButtonClick(ActionEvent event) throws IOException {
-         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/ProvideFeedback.fxml"));
+    private void returnProductOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/ReturnProduct.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
+    
 
-  
+    @FXML
+    private void salesReportOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/SalesReport.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+    
 
+    @FXML
+    private void logOutButtonClick(ActionEvent event) throws IOException {
+      Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Commmon/login.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+    
+
+    @FXML
+    private void provideFeedbackOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/ProvideFeedback.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+    
+
+    @FXML
+    private void goToNewSceneOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/More.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
     
 }

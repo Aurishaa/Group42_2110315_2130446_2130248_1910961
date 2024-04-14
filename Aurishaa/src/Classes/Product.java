@@ -7,19 +7,23 @@ package Classes;
 import java.io.Serializable;
 
 
-public class Cart implements Serializable {
+ 
+
+
+public class Product implements Serializable {
  
     private String productName;
     private int quantity;
     private float unitPrice;
     private float totalPrice; 
 
-    public Cart(String productName, int quantity, float unitPrice, float totalPrice) {
+    public Product(String productName, int quantity, float unitPrice, float totalPrice) {
         this.productName = productName;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
         this.totalPrice = totalPrice;
     }
+    
 
     public String getProductName() {
         return productName;
@@ -29,11 +33,11 @@ public class Cart implements Serializable {
         this.productName = productName;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -55,8 +59,10 @@ public class Cart implements Serializable {
 
     @Override
     public String toString() {
-        return "Cart{" + "productName=" + productName + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", totalPrice=" + totalPrice + '}';
+        return "Product{" + "productName=" + productName + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", totalPrice=" + totalPrice + '}';
     }
+
+    
     
     
     public float findTotalPrice(){
@@ -64,3 +70,5 @@ public class Cart implements Serializable {
        return total;
     }
 }
+
+

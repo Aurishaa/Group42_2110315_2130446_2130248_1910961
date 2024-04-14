@@ -37,7 +37,16 @@ public class RequestSampleProductController implements Initializable {
     private TextField emailTextField;
     @FXML
     private TextField numberTextField;
+    private Distributor distributor;
 
+    public Distributor getDistributor() {
+        return distributor;
+    }
+
+    public void setDistributor(Distributor distributor) {
+        this.distributor = distributor;
+    }
+    
     /**
      * Initializes the controller class.
      */
