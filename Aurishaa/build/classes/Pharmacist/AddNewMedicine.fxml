@@ -5,7 +5,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pharmacist.AddNewMedicineController">
+
+<AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="412.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
    <children>
       <TextField fx:id="nameMedicineTextField" layoutX="202.0" layoutY="47.0" />
       <Label layoutX="21.0" layoutY="52.0" text="Enter Name Of Medicine:" />
@@ -13,7 +14,6 @@
       <Label layoutX="18.0" layoutY="107.0" text="Enter Quantity" />
       <TextField fx:id="expirationDateTextField" layoutX="199.0" layoutY="163.0" />
       <Label layoutX="18.0" layoutY="168.0" text="Expiration Date:" />
-      <Button fx:id="addMedicineButton" layoutX="258.0" layoutY="223.0" mnemonicParsing="false" onAction="#addMedicineOnMouseClick" text="Add Medicine" />
-      <Button layoutX="21.0" layoutY="223.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Back" />
+      <Button fx:id="addMedicineButton" layoutX="143.0" layoutY="223.0" mnemonicParsing="false" onAction="#addMedicineOnMouseClick" text="Add Medicine" />
    </children>
 </AnchorPane>
