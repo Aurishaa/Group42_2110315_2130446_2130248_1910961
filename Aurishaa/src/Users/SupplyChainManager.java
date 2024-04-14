@@ -7,7 +7,7 @@ package Users;
 
 import Classes.Budget;
 import Common.AppendableObjectOutputStream;
-import Supplier.SupplierInformationTable;
+import Classes.SupplierInformationTable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

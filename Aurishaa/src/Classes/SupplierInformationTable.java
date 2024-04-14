@@ -1,14 +1,22 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Classes;
 
-package Supplier;
+import java.io.Serializable;
 
 /**
  *
  * @author Dell
  */
-public class SupplierInformationTable {
-    private String companyName;
+public class SupplierInformationTable implements Serializable{
+     private String companyName;
     private String contactPerson;
     private String contactNumber;
+
+    public SupplierInformationTable() {
+    }
 
     public SupplierInformationTable(String companyName, String contactPerson, String contactNumber) {
         this.companyName = companyName;
@@ -16,7 +24,6 @@ public class SupplierInformationTable {
         this.contactNumber = contactNumber;
     }
 
-    
     public String getCompanyName() {
         return companyName;
     }
@@ -45,5 +52,5 @@ public class SupplierInformationTable {
     public String toString() {
         return "SupplierInformationTable{" + "companyName=" + companyName + ", contactPerson=" + contactPerson + ", contactNumber=" + contactNumber + '}';
     }
-    
+
 }
