@@ -6,46 +6,51 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="578.0" style="-fx-background-color: lavender;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Distributor.DistributorDashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="640.0" style="-fx-background-color: lavender;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Distributor.DistributorDashboardController">
    <top>
-      <Label prefHeight="88.0" prefWidth="578.0" text="                         Distributor Dashboard" BorderPane.alignment="CENTER">
+      <Label prefHeight="88.0" prefWidth="660.0" text="                         Distributor Dashboard" BorderPane.alignment="CENTER">
          <font>
             <Font name="Lucida Bright Demibold Italic" size="29.0" />
          </font>
       </Label>
    </top>
    <center>
-      <AnchorPane prefHeight="388.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="349.0" prefWidth="658.0" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#placeOrderOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Place Order">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="26.0" layoutY="62.0" mnemonicParsing="false" onAction="#viewInventoryOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="View Inventory">
+            <Button layoutX="26.0" layoutY="65.0" mnemonicParsing="false" onAction="#viewInventoryOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="View Inventory">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="26.0" layoutY="113.0" mnemonicParsing="false" onAction="#getSampleOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Get Product Sample">
+            <Button layoutX="27.0" layoutY="122.0" mnemonicParsing="false" onAction="#getSampleOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Get Product Sample">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="26.0" layoutY="167.0" mnemonicParsing="false" onAction="#returnProductOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Return Product">
+            <Button layoutX="27.0" layoutY="177.0" mnemonicParsing="false" onAction="#returnProductOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Return Product">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="26.0" layoutY="212.0" mnemonicParsing="false" onAction="#salesReportOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Report">
+            <Button layoutX="26.0" layoutY="227.0" mnemonicParsing="false" onAction="#salesReportOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Report">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="485.0" layoutY="291.0" mnemonicParsing="false" onAction="#goBackToDashboardButtonOnClick" prefHeight="31.0" prefWidth="64.0" style="-fx-background-color: white;" text="Back" />
-            <Button layoutX="26.0" layoutY="258.0" mnemonicParsing="false" onAction="#provideFeedbackOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Feedback">
+            <Button layoutX="507.0" layoutY="347.0" mnemonicParsing="false" onAction="#logOutButtonClick" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: white;" text="Log Out" />
+            <Button layoutX="26.0" layoutY="277.0" mnemonicParsing="false" onAction="#provideFeedbackOnButtonClick" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: white;" text="Feedback">
                <font>
                   <Font name="Arial Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="28.0" layoutY="331.0" mnemonicParsing="false" onAction="#goToNewSceneOnButtonClick" prefHeight="33.0" prefWidth="205.0" style="-fx-background-color: white;" text="More">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
          </children>

@@ -7,7 +7,8 @@ package Users;
 import Classes.Feedback;
 import Classes.Product;
 import Classes.ProductSample;
-
+import Classes.SalesReport;
+import Classes.Task;
 import Common.AppendableObjectOutputStream;
 import java.io.EOFException;
 import java.io.File;
@@ -150,9 +151,26 @@ public static void requestProductSample(String productName, int quantity, String
 }
     
         
-        
    
+    
+    public static ObservableList<Task> viewAssignedTask() {
+    ObservableList<Task> taskList = FXCollections.observableArrayList();
+    File file = new File("Task.bin");
 
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Task  newTask= (Task) ois.readObject();
+            taskList.add(newTask);
+        }
+    } catch (EOFException e) {
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    return taskList;
+     
+    }
+  
 
 public static void placeOrder(String productName, int quantity, float unitPrice, float totalPrice) {
     Product newProduct = new Product(
@@ -211,16 +229,79 @@ public static void placeOrder(String productName, int quantity, float unitPrice,
             productItem.add(newProduct);
         }
     } catch (EOFException e) {
-        // Reached end of file, do nothing
     } catch (IOException | ClassNotFoundException e) {
-        e.printStackTrace(); // Handle or log the exception
+        e.printStackTrace();
     }
 
     return productItem;
-}
+
         
-        
+       
+    
+    }   
+    
+ public static void generateReport(String productName, int quantitySold) {
+    SalesReport newReport = new SalesReport(
+            productName, quantitySold
+    );
+
+    System.out.println("Report made:" + newReport.toString());
+
+    File f = null;
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+    try {
+
+        f = new File("SalesReport.bin");
+
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true);
+            oos = new AppendableObjectOutputStream(fos);
+
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newReport);
+        oos.close();
+
+
+    } catch (IOException e) {
+        if (oos != null) {
+            try {
+                oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Distributor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        System.out.println("Error writing Object to binary file");
+
     }
+    }
+    
+    
+  public static ObservableList<Product> viewOrderHistoryPieChart() {
+    ObservableList<Product> productView = FXCollections.observableArrayList();
+    File file = new File("Product.bin");
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Product  newProduct= (Product) ois.readObject();
+            productView.add(newProduct);
+        }
+    } catch (EOFException e) {
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    return productView;
+
+        
+ 
+ 
+  }
+}
     
     
     

@@ -4,16 +4,25 @@
  */
 package Classes;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Task {
+public class Task implements Serializable{
+    private String assignedTo;
     private String taskDetails;
     private LocalDate dueDate;
-    private String assignedTo;
 
-    public Task(String taskDetails, LocalDate dueDate, String assignedTo) {
+    public Task(String assignedTo, String taskDetails, LocalDate dueDate) {
+        this.assignedTo = assignedTo;
         this.taskDetails = taskDetails;
         this.dueDate = dueDate;
+    }
+
+    public String getAssignedTo() {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(String assignedTo) {
         this.assignedTo = assignedTo;
     }
 
@@ -33,18 +42,9 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    public String getAssignedTo() {
-        return assignedTo;
-    }
-
-    public void setAssignedTo(String assignedTo) {
-        this.assignedTo = assignedTo;
-    }
-
     @Override
     public String toString() {
-        return "Task{" + "taskDetails=" + taskDetails + ", dueDate=" + dueDate + ", assignedTo=" + assignedTo + '}';
+        return "Task{" + "assignedTo=" + assignedTo + ", taskDetails=" + taskDetails + ", dueDate=" + dueDate + '}';
     }
-    
-    
+
 }
