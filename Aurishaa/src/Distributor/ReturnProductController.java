@@ -6,18 +6,23 @@ package Distributor;
 
 import Classes.Product;
 import Users.Distributor;
-import static Users.Distributor.returnProduct;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -48,17 +53,15 @@ public class ReturnProductController implements Initializable {
     public void setDistributor(Distributor distributor) {
         this.distributor = distributor;
     }
-    
-    ObservableList<Product> productItem = returnProduct();
-    @Override
+        @Override
     public void initialize(URL url, ResourceBundle rb) {
         productNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
            quantityTableColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
            unitPiceTableColumn.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
            totalPriceTableColumn.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
            
-         ObservableList<Product> cartItems = distributor.returnProduct();
-        productDetailsTableView.setItems(cartItems);
+         ObservableList<Product> productItem = distributor.returnProduct();
+        productDetailsTableView.setItems(productItem);
     }
            
         
@@ -94,7 +97,12 @@ public class ReturnProductController implements Initializable {
     
 
     @FXML
-    private void goBackToDashboardOnButtonClick(ActionEvent event) {
+    private void goBackToDashboardOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/DistributorDashboard.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
     
 }

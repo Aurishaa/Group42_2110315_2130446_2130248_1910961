@@ -75,7 +75,6 @@ public class SignUpController implements Initializable {
             a1.showAndWait();
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("login.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
-                //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();                                         
@@ -89,7 +88,6 @@ public class SignUpController implements Initializable {
             a1.showAndWait();
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("login.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
-                //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
@@ -103,7 +101,6 @@ public class SignUpController implements Initializable {
             a1.showAndWait();
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("login.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
-                //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
@@ -117,7 +114,6 @@ public class SignUpController implements Initializable {
             a1.showAndWait();
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("login.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
-                //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
@@ -131,7 +127,6 @@ public class SignUpController implements Initializable {
             a1.showAndWait();
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("login.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
-                //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
@@ -145,7 +140,6 @@ public class SignUpController implements Initializable {
             a1.showAndWait();
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("login.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
-                //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
@@ -159,7 +153,6 @@ public class SignUpController implements Initializable {
             a1.showAndWait();
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("login.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
-                //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
@@ -173,7 +166,6 @@ public class SignUpController implements Initializable {
             a1.showAndWait();
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("login.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
-                //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
@@ -182,7 +174,6 @@ public class SignUpController implements Initializable {
             Alert a2 = new Alert(Alert.AlertType.WARNING);
             a2.setTitle("Warning ");
             a2.setHeaderText("LogIn Failed");
-//            a2.setContentText("Wrong ID/Password");
             a2.setContentText("Wrong ID/Password. Please Try Again");
             a2.showAndWait();
         }
@@ -211,7 +202,6 @@ public class SignUpController implements Initializable {
                 || dobDatePicker.getValue() == null )
                                       
                 {
-            // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -267,7 +257,6 @@ public class SignUpController implements Initializable {
                 || dobDatePicker.getValue() == null )
                                       
                 {
-            // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -322,7 +311,6 @@ public class SignUpController implements Initializable {
                 || dobDatePicker.getValue() == null )
                                       
                 {
-            // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -432,7 +420,6 @@ public class SignUpController implements Initializable {
                 || dobDatePicker.getValue() == null )
                                       
                 {
-            // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -487,7 +474,6 @@ public class SignUpController implements Initializable {
                 || dobDatePicker.getValue() == null )
                                       
                 {
-            // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -542,7 +528,6 @@ public class SignUpController implements Initializable {
                 || dobDatePicker.getValue() == null )
                                       
                 {
-            // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -597,7 +582,6 @@ public class SignUpController implements Initializable {
                 || dobDatePicker.getValue() == null )
                                       
                 {
-            // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);

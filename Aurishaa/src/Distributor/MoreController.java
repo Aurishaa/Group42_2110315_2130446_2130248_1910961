@@ -19,9 +19,7 @@ import javafx.stage.Stage;
 
 public class MoreController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

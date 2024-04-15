@@ -94,9 +94,6 @@ public class CreatePolicyController implements Initializable {
     
     }   
 
-    @FXML
-    private void downloadPolicyButtonOnClick(ActionEvent event) {
-    }
 
     @FXML
     private void goBackToDashboardButtonOnClick(ActionEvent event) throws IOException {

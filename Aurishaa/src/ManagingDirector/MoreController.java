@@ -49,8 +49,12 @@ public class MoreController implements Initializable {
     }
 
     @FXML
-    private void goToDashboardButtonOnClick(ActionEvent event) {
-        
+    private void goToDashboardButtonOnClick(ActionEvent event) throws IOException {
+         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/ManagingDirectorDashboard.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
     
 }

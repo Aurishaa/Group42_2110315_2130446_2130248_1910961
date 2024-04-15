@@ -8,6 +8,7 @@ import Classes.Feedback;
 import Classes.Product;
 import Classes.ProductSample;
 import Classes.SalesReport;
+import Classes.Stock;
 import Classes.Task;
 import Common.AppendableObjectOutputStream;
 import java.io.EOFException;
@@ -281,7 +282,7 @@ public static void placeOrder(String productName, int quantity, float unitPrice,
     }
     
     
-  public static ObservableList<Product> viewOrderHistoryPieChart() {
+  public static ObservableList<Product> viewOrderHistory() {
     ObservableList<Product> productView = FXCollections.observableArrayList();
     File file = new File("Product.bin");
 
@@ -298,6 +299,22 @@ public static void placeOrder(String productName, int quantity, float unitPrice,
     return productView;
 
         
+  }
+     public static ObservableList<Stock> viewInventory() {
+    ObservableList<Stock> stockView = FXCollections.observableArrayList();
+    File file = new File("Inventory.bin");
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Stock  newStock= (Stock) ois.readObject();
+            stockView.add(newStock);
+        }
+    } catch (EOFException e) {
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    return stockView;
  
  
   }

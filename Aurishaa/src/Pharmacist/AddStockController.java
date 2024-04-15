@@ -5,19 +5,14 @@
 package Pharmacist;
 
 
+import Classes.Stock;
 import Common.AppendableObjectOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,48 +45,47 @@ public class AddStockController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ProductName=productTextField.getText();
-        UnitPrice=unitPriceTextField.getText();
-        Availibility=availabilityTextField.getText();
-     
+       
     }    
 
     @FXML
     private void addStockOnButtonClick(ActionEvent event) {
         
-             Stock newStock = new Stock(ProductName,  UnitPrice, Availibility);
-             File f = null;
-             FileOutputStream fos = null;
-             ObjectOutputStream oos = null;
-            try {
+          String productName = productTextField.getText();
+    String unitPrice = unitPriceTextField.getText();
+    String availability = availabilityTextField.getText();
+    
+    Stock newStock = new Stock(productName, unitPrice, availability);
+    File f = new File("Inventory.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+    
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true);
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
 
-            f = new File("Inventory.bin");
-
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
-            }
-
-            oos.writeObject(newStock);
-            oos.close();
-           
-
-        } catch (IOException e) {
+        oos.writeObject(newStock);
+    } catch (IOException e) {
+        e.printStackTrace();
+        // Optionally, provide feedback to the user about the error
+    } finally {
+        try {
             if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException ex) {
-                }
+                oos.close();
             }
-            
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-         
-    }
+}
        
         
         

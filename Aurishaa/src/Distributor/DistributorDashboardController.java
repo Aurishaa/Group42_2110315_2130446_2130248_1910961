@@ -42,7 +42,12 @@ public class DistributorDashboardController implements Initializable {
     
 
     @FXML
-    private void viewInventoryOnButtonClick(ActionEvent event) {
+    private void viewInventoryOnButtonClick(ActionEvent event) throws IOException {
+         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/ViewInventory.fxml"));
+        Scene scene1= new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
 
     }
 
@@ -78,7 +83,7 @@ public class DistributorDashboardController implements Initializable {
 
     @FXML
     private void logOutButtonClick(ActionEvent event) throws IOException {
-      Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Commmon/login.fxml"));
+      Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Common/login.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);

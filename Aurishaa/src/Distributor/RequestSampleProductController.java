@@ -57,7 +57,7 @@ public class RequestSampleProductController implements Initializable {
 
     @FXML
     private void backToDashboardOnButtonClick(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/DistributorDashBoard.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Distributor/DistributorDashboard.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
