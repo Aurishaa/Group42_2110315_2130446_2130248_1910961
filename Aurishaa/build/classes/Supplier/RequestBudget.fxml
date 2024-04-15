@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="712.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Supplier.RequestBudgetController">
    <children>
       <Label layoutX="36.0" layoutY="99.0" prefHeight="27.0" prefWidth="144.0" style="-fx-background-color: orange;" text="Name of Department:">
@@ -39,7 +38,7 @@
          </font>
       </Button>
       <Label fx:id="budgetInfoLabel" layoutX="73.0" layoutY="317.0" prefHeight="163.0" prefWidth="479.0" style="-fx-border-color: red;" />
-      <Button layoutX="581.0" layoutY="480.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="39.0" prefWidth="120.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
+      <Button layoutX="566.0" layoutY="480.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="39.0" prefWidth="120.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
