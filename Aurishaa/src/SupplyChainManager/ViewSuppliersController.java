@@ -1,9 +1,14 @@
 
 package SupplyChainManager;
 
+
+import Classes.SupplierInformationTable;
 import Users.Supplier;
-import Supplier.SupplierInformationTable;
+
+
 import Users.SupplyChainManager;
+import static Users.SupplyChainManager.viewSuppliers;
+//import static Users.SupplyChainManager.viewSuppliers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -45,7 +51,7 @@ public class ViewSuppliersController implements Initializable {
     @FXML
     private TableColumn<SupplierInformationTable, String> contactNumberTableColumn;
 
-    private ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
+    ObservableList<SupplierInformationTable> supplierInfo = viewSuppliers();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          companyNameTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("companyName"));
@@ -53,7 +59,7 @@ public class ViewSuppliersController implements Initializable {
          contactNumberTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformationTable,String>("contactNumber"));
      
 
-   supplierInfoTableView.setItems(SupplyChainManager.viewSuppliers());
+   supplierInfoTableView.setItems(supplierInfo);
 
     
     
@@ -61,12 +67,12 @@ public class ViewSuppliersController implements Initializable {
 
     @FXML
     private void viewSuppliersButtonMouseOnClicked(ActionEvent event) {
-            
-        ObservableList<SupplierInformationTable> supplierInfo = SupplyChainManager.viewSuppliers();
-       //supplierInfoTableView.setItems(supplierInfo);
-       //supplierInfoTableView.setItems(SupplyChainManager.viewSuppliers());
-       
-        SupplierInformationTable supplierInformationtable= supplierInfoTableView.getSelectionModel().getSelectedItem();
+         Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("All the informations has been added.");
+        alert.showAndWait();    
+      
           
     }
 

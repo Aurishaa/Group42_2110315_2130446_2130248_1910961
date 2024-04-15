@@ -8,9 +8,11 @@ import Classes.Budget;
 import Classes.Meeting;
 import Classes.Policy;
 import Classes.SalesReport;
+import Classes.SupplierInformationTable;
 
 import Classes.Task;
 import Common.AppendableObjectOutputStream;
+
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -260,4 +262,43 @@ public class ManagingDirector  extends User implements Serializable{
 
     return reportInfo;  
  }
+ 
+ 
+    public static ObservableList<SupplierInformationTable> viewSupplierInformation(){
+        ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
+        SupplierInformationTable s;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("SupplierInformationTable.bin"));
+            while (true) {
+                s = (SupplierInformationTable) ois.readObject();
+                System.out.println("The supplier Information you read: " + s.toString());
+                supplierInfo.add(s);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(supplierInfo);
+        return supplierInfo;
+ 
+ 
+}
+    
+    
+    public static ObservableList<Budget> viewBudgetDistributionPieChart() {
+    ObservableList<Budget> budgetView = FXCollections.observableArrayList();
+    File file = new File("Budget.bin");
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Budget  newBudget= (Budget) ois.readObject();
+            budgetView.add(newBudget);
+        }
+    } catch (EOFException e) {
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    return budgetView;
+    }
 }

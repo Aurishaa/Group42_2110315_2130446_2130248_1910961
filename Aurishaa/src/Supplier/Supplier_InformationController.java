@@ -4,6 +4,7 @@ package Supplier;
 
 
 //import Users.Supplier;
+import Classes.SupplierInformationTable;
 import Users.Supplier;
 import java.io.IOException;
 import java.net.URL;
@@ -48,7 +49,7 @@ public class Supplier_InformationController implements Initializable {
     @FXML
     //private Label supplierInfoLabel;
     
-    private ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
+    ObservableList<SupplierInformationTable> supplierInfo = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        // supplierList=new ArrayList<Supplier>();
@@ -90,7 +91,7 @@ public class Supplier_InformationController implements Initializable {
         String contactNumber=contactNumberTextField.getText();
         
         
-        supplier.supplierInformation(companyName, contactPerson, contactNumber);
+        Supplier.supplierInformation(companyName, contactPerson, contactNumber);
        // String supplierInfo = "Company Name: " + companyName + "\n\n"
         //        + "Contact Person: " + contactPerson + "\n\n"
           //      + "Contact Number: " + contactNumber + "\n\n";

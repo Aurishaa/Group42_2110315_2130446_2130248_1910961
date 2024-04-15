@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="881.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Supplier.Order_ListController">
    <children>
-      <TableView layoutX="47.0" layoutY="125.0" prefHeight="200.0" prefWidth="501.0">
+      <TableView fx:id="newProductTableInfo" layoutX="27.0" layoutY="128.0" prefHeight="301.0" prefWidth="711.0">
         <columns>
-          <TableColumn prefWidth="171.0" text="Order Number" />
-          <TableColumn prefWidth="143.0" text="Product" />
-            <TableColumn prefWidth="186.0" text="Quantity" />
+          <TableColumn fx:id="productIdTableColumn" prefWidth="105.0" text="Product ID" />
+          <TableColumn fx:id="productNameTableColumn" prefWidth="182.0" text="Product Name" />
+            <TableColumn fx:id="quantityTableColumn" prefWidth="123.0" text="Quantity" />
+            <TableColumn fx:id="productTypeTableColumn" prefWidth="142.0" text="Product Type" />
+            <TableColumn fx:id="descriptionTableColumn" prefWidth="158.0" text="Description" />
         </columns>
       </TableView>
-      <Button layoutX="223.0" layoutY="66.0" mnemonicParsing="false" style="-fx-background-color: orange; -fx-border-color: red;" text="Newly Added Products">
+      <Button layoutX="321.0" layoutY="464.0" mnemonicParsing="false" onAction="#newlyAddedProductButtonMouseOnClicked" style="-fx-background-color: orange; -fx-border-color: red;" text="Newly Added Products">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="541.0" layoutY="359.0" mnemonicParsing="false" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
+      <Button layoutX="633.0" layoutY="491.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Label layoutX="200.0" layoutY="47.0" prefHeight="33.0" prefWidth="350.0" style="-fx-background-color: white; -fx-border-color: red;" text="             View Newly Added Product" textFill="#c35d22">
+         <font>
+            <Font name="Arial Bold Italic" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

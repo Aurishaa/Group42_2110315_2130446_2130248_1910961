@@ -4,20 +4,36 @@
  */
 package Users;
 
+import Classes.Budget;
+import Classes.NewlyAddedProduct;
+import Classes.OrderStatus;
+import Classes.OrdersSCM;
+import Classes.Payment;
+import Classes.SuppliedProduct;
 import Common.AppendableObjectOutputStream;
+import Classes.SupplierInformationTable;
+import Classes.SupplyReport;
+import Classes.Task;
 
-import Supplier.SupplierInformationTable;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Supplier extends User implements Serializable{
+
+    public static void generateSupplyReport(int reportId, String description, LocalDate month) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     public String companyName;
     public String contactPerson;
@@ -95,51 +111,260 @@ public class Supplier extends User implements Serializable{
     }
 
    
-    
+   public static void supplierInformation(String companyName, String contactPerson, String contactNumber) {
+    SupplierInformationTable newSupplierInformationTable = new SupplierInformationTable(companyName, contactPerson, contactNumber);
+    File f = new File("SupplierInformationTable.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newSupplierInformationTable);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
 
  
+ public static void suppliedProduct(String productName, int quantity, LocalDate supplyDate,String productType) {
+    SuppliedProduct suppliedProduct = new SuppliedProduct(productName, quantity, supplyDate,productType);
+    File f = new File("SuppliedProduct.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
 
-  public static void supplierInformation( String companyName, String contactPerson,String contactNumber){ 
-                   SupplierInformationTable supplierInfo = new SupplierInformationTable(companyName, contactPerson,  contactNumber);
-  
-        File f = null;
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-
-        try {
-            f = new File("SupplierInformationTable.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
-             oos.writeObject(supplierInfo);
-             System.out.println("Supplier information written successfully!");
-             
-             
-         
-      
-         
-         } 
-        catch (IOException ex) {
-             Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
         }
-        finally {
-            
-                if (oos != null) try {
-                    oos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-           
+
+        oos.writeObject(suppliedProduct);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
         }
     }
     
+    
+  
+             
+}
+
+ public static ObservableList<OrdersSCM> viewIncomingOrders(){
+        ObservableList<OrdersSCM> OrderInfo = FXCollections.observableArrayList();
+        OrdersSCM o;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("OrdersSCM.bin"));
+            while (true) {
+                o = (OrdersSCM) ois.readObject();
+                System.out.println("The orders you read: " + o.toString());
+                OrderInfo.add(o);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(OrderInfo);
+        return OrderInfo;
+    } 
+public static ObservableList<Task> viewTask(){
+        ObservableList<Task> TaskInfo = FXCollections.observableArrayList();
+        Task t;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("Task.bin"));
+            while (true) {
+                t = (Task) ois.readObject();
+                System.out.println("The tasks you read: " + t.toString());
+                TaskInfo.add(t);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(TaskInfo);
+        return TaskInfo;
+    } 
+
+
+public static ObservableList<NewlyAddedProduct> viewNewProduct(){
+        ObservableList<NewlyAddedProduct> productInfo = FXCollections.observableArrayList();
+        NewlyAddedProduct n;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("NewlyaddedProduct.bin"));
+            while (true) {
+                n = (NewlyAddedProduct) ois.readObject();
+                System.out.println("The new products are: " + n.toString());
+                productInfo.add(n);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(productInfo);
+        return productInfo;
+    } 
+
+
+public static void orderStatus(int deliveryId, LocalDate deliveryDate,  String deliveryStatus) {
+    OrderStatus newOrderStatus = new OrderStatus(deliveryId, deliveryDate, deliveryStatus);
+    File f = new File("OrderStatus.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newOrderStatus);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
     }
+  } 
+
+public static void processPayment( String productName, String quantities, String unitPrice,String totalPrice) {
+    Payment newPayment = new Payment(productName,quantities,unitPrice, totalPrice);
+    File f = new File("Payment.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newPayment);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
+
+
+public static void generateSupplyReport( int reportId, LocalDate month, String description) {
+    SupplyReport newSupplyReport = new SupplyReport(reportId,month, description);
+    File f = new File("SupplyReport.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newSupplyReport);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
+public static void requestBudget(String department, int amount, LocalDate requestDate) {
+    Budget newBudget = new Budget(department, amount, requestDate);
+    File f = new File("Budget.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newBudget);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
+
+ 
+}
 
 
 

@@ -1,32 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="395.0" prefWidth="589.0" style="-fx-background-color: beige;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane id="AnchorPane" prefHeight="531.0" prefWidth="773.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Supplier.Process_PaymentController">
    <children>
-      <TableView layoutX="42.0" layoutY="44.0" prefHeight="200.0" prefWidth="505.0">
+      <TableView fx:id="paymentInfoTableView" layoutX="95.0" layoutY="207.0" prefHeight="200.0" prefWidth="552.0">
         <columns>
-          <TableColumn prefWidth="83.0" text="Order Id " />
-          <TableColumn prefWidth="140.0" text="Product Name" />
-            <TableColumn prefWidth="94.0" text="Quantities" />
-            <TableColumn prefWidth="94.0" text="Unit Price" />
-            <TableColumn prefWidth="94.0" text="Total Amount" />
+          <TableColumn fx:id="productNameTableColumn" prefWidth="140.0" text="Product Name" />
+            <TableColumn fx:id="quantitiesTableColumn" prefWidth="94.0" text="Quantities" />
+            <TableColumn fx:id="unitPriceTableColumn" prefWidth="94.0" text="Unit Price" />
+            <TableColumn fx:id="totalPriceTableColumn" prefWidth="140.0" text="Total Price" />
         </columns>
       </TableView>
-      <Button layoutX="236.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Confirm Payment">
+      <Button layoutX="279.0" layoutY="423.0" mnemonicParsing="false" onAction="#confirmPaymentButtonMouseOnClicked" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Confirm Payment">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="482.0" layoutY="344.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
+      <Button layoutX="653.0" layoutY="470.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Label layoutX="43.0" layoutY="104.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Product Name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="productNameTextField" layoutX="169.0" layoutY="105.0" />
+      <Label layoutX="43.0" layoutY="145.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Quantities:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quantitiesTextField" layoutX="169.0" layoutY="146.0" />
+      <Label layoutX="362.0" layoutY="104.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Unit Price:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="362.0" layoutY="145.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Total Price:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="unitPriceTextField" layoutX="486.0" layoutY="105.0" />
+      <TextField fx:id="totalPriceTextField" layoutX="486.0" layoutY="146.0" />
+      <Label layoutX="244.0" layoutY="23.0" prefHeight="33.0" prefWidth="232.0" style="-fx-background-color: white; -fx-border-color: red;" text="   Payment Confirmation" textFill="#c35d22">
+         <font>
+            <Font name="Arial Bold Italic" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -4,10 +4,18 @@
  */
 package Users;
 
-
+import Users.Distributor;
 import Classes.Budget;
+import Classes.NewlyAddedProduct;
+import Classes.OrderStatus;
+
+import Classes.OrdersSCM;
+import Classes.ProductSample;
+import Classes.SuppliedProduct;
 import Common.AppendableObjectOutputStream;
-import Supplier.SupplierInformationTable;
+import Classes.SupplierInformationTable;
+import Classes.SupplyReport;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,6 +34,8 @@ import javafx.collections.ObservableList;
  * @author Dell
  */
 public class SupplyChainManager extends User implements Serializable{
+
+    
 
     public SupplyChainManager(String name, Integer ID, String password, String email, LocalDate DOB, String Group) {
         super(name, ID, password, email, DOB, Group);
@@ -113,5 +123,148 @@ public class SupplyChainManager extends User implements Serializable{
             ex.printStackTrace(); // Handle or log the exception
         }
     }
+    
+    
+    
   }
+  
+  public static ObservableList<ProductSample> approveProduct() {
+    ObservableList<ProductSample> productInfo = FXCollections.observableArrayList();
+    ProductSample p;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("ProductSample.bin"));
+            while (true) {
+                p = (ProductSample) ois.readObject();
+                System.out.println("The supplier Information you read: " + p.toString());
+                productInfo.add(p);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(productInfo);
+        return productInfo;
+    } 
+  
+  
+  public static ObservableList<SuppliedProduct> updateInventory() {
+    ObservableList<SuppliedProduct> suppliedProductInfo = FXCollections.observableArrayList();
+    SuppliedProduct sp;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("SuppliedProduct.bin"));
+            while (true) {
+                sp = (SuppliedProduct) ois.readObject();
+                System.out.println("The supplied product information you read: " + sp.toString());
+                suppliedProductInfo.add(sp);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(suppliedProductInfo);
+        return suppliedProductInfo;
+    } 
+  
+  public static void provideOrders(int orderNumber, String product, int quantity) {
+    OrdersSCM newOrdersSCM = new OrdersSCM(orderNumber, product, quantity);
+    File f = new File("OrdersSCM.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newOrdersSCM);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
+  
+  
+  public static void addedProduct(int productId, String name, String description, int quantity, String productType) {
+    NewlyAddedProduct newAddedProduct = new NewlyAddedProduct(productId, name, description,quantity,productType);
+    File f = new File("NewlyAddedProduct.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newAddedProduct);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+    
+    
+    
+  }
+  public static ObservableList<OrderStatus> viewStatus() {
+    ObservableList<OrderStatus> statusInfo = FXCollections.observableArrayList();
+    OrderStatus o;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("OrderStatus.bin"));
+            while (true) {
+                o = (OrderStatus) ois.readObject();
+                System.out.println("The order status information you read: " + o.toString());
+                statusInfo.add(o);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(statusInfo);
+        return statusInfo;
+    } 
+  public static ObservableList<SupplyReport> viewReport() {
+    ObservableList<SupplyReport> reportInfo = FXCollections.observableArrayList();
+    SupplyReport s;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("SupplyReport.bin"));
+            while (true) {
+                s = (SupplyReport) ois.readObject();
+                System.out.println("The supplier Information you read: " + s.toString());
+                reportInfo.add(s);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(reportInfo);
+        return reportInfo;
+    } 
 }
+
