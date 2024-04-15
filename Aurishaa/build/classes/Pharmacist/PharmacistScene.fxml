@@ -21,7 +21,6 @@
       <Button fx:id="distributeMedicineButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#distributeMedicineOnMouseClick" text="DistributeMedicine" />
       <Button fx:id="generateReportButton" layoutX="14.0" layoutY="418.0" mnemonicParsing="false" onAction="#generateReportOnMouseClick" text="GenerateReport" />
       <Button fx:id="setReminderButton" layoutX="14.0" layoutY="478.0" mnemonicParsing="false" onAction="#setReminderOnMouseClick" text="SetReminder" />
-      <Button fx:id="budgetProposalButton" layoutX="15.0" layoutY="537.0" mnemonicParsing="false" onAction="#budgetProposalOnMouseClick" text="BudgetProposal" />
       <Label layoutX="338.0" layoutY="138.0" prefHeight="392.0" prefWidth="704.0" text="Welcome to your DashBoard Pharmacist" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="87.0" />
