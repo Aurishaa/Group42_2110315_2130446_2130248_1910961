@@ -25,18 +25,12 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="163.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Quantities:">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="36.0" layoutY="200.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Delivery Status:">
+      <Label layoutX="36.0" layoutY="174.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Delivery Status:">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="deliveryIdTextField" layoutX="151.0" layoutY="91.0" />
-      <TextField fx:id="quantitiesTextField" layoutX="151.0" layoutY="164.0" />
       <DatePicker fx:id="deliveryDatePicker" layoutX="151.0" layoutY="129.0" />
       <Label fx:id="statusInfoLabel" layoutX="38.0" layoutY="277.0" prefHeight="196.0" prefWidth="420.0" style="-fx-border-color: red;" />
       <Button layoutX="560.0" layoutY="430.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="33.0" prefWidth="87.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">
@@ -54,6 +48,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ComboBox fx:id="statusComboBox" layoutX="151.0" layoutY="201.0" prefWidth="150.0" />
+      <ComboBox fx:id="statusComboBox" layoutX="151.0" layoutY="175.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

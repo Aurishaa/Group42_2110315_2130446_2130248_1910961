@@ -95,18 +95,24 @@ public class Supplier_DashboardController implements Initializable {
     }
 
 
+   
+
     @FXML
-    private void viewTaskButtonMouseOnClicked(ActionEvent event) throws IOException {
-    Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/ViewTask.fxml"));
+    private void assignOrderStatusButtonMouseOnClicked(ActionEvent event) throws IOException {
+    Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/AssignOrderStatus.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
+    
+
+
 
     @FXML
-    private void assignOrderStatusButtonMouseOnClicked(ActionEvent event) throws IOException {
-    Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/AssignOrderStatus.fxml"));
+    private void requestBudgetButtonMouseOnClicked(ActionEvent event) throws IOException {
+
+    Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Supplier/RequestBudget.fxml"));
         Scene scene1= new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);

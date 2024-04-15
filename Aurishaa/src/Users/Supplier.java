@@ -8,9 +8,11 @@ import Classes.Budget;
 import Classes.NewlyAddedProduct;
 import Classes.OrderStatus;
 import Classes.OrdersSCM;
+import Classes.Payment;
 import Classes.SuppliedProduct;
 import Common.AppendableObjectOutputStream;
 import Classes.SupplierInformationTable;
+import Classes.SupplyReport;
 import Classes.Task;
 
 import java.io.File;
@@ -28,6 +30,10 @@ import javafx.collections.ObservableList;
 
 
 public class Supplier extends User implements Serializable{
+
+    public static void generateSupplyReport(int reportId, String description, LocalDate month) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     public String companyName;
     public String contactPerson;
@@ -229,8 +235,8 @@ public static ObservableList<NewlyAddedProduct> viewNewProduct(){
     } 
 
 
-public static void orderStatus(int deliveryId, LocalDate deliveryDate, int quantities, String deliveryStatus) {
-    OrderStatus newOrderStatus = new OrderStatus(deliveryId, deliveryDate, quantities,deliveryStatus);
+public static void orderStatus(int deliveryId, LocalDate deliveryDate,  String deliveryStatus) {
+    OrderStatus newOrderStatus = new OrderStatus(deliveryId, deliveryDate, deliveryStatus);
     File f = new File("OrderStatus.bin");
     FileOutputStream fos = null;
     ObjectOutputStream oos = null;
@@ -260,6 +266,104 @@ public static void orderStatus(int deliveryId, LocalDate deliveryDate, int quant
         }
     }
   } 
+
+public static void processPayment( String productName, String quantities, String unitPrice,String totalPrice) {
+    Payment newPayment = new Payment(productName,quantities,unitPrice, totalPrice);
+    File f = new File("Payment.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newPayment);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
+
+
+public static void generateSupplyReport( int reportId, LocalDate month, String description) {
+    SupplyReport newSupplyReport = new SupplyReport(reportId,month, description);
+    File f = new File("SupplyReport.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newSupplyReport);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
+public static void requestBudget(String department, int amount, LocalDate requestDate) {
+    Budget newBudget = new Budget(department, amount, requestDate);
+    File f = new File("Budget.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
+
+    try {
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true); // Append mode
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+
+        oos.writeObject(newBudget);
+    } catch (IOException e) {
+        e.printStackTrace(); // Handle or log the exception
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Handle or log the exception
+        }
+    }
+  } 
+
+ 
 }
 
 

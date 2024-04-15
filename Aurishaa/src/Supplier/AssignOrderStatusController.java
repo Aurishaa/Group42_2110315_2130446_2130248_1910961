@@ -39,18 +39,10 @@ private Supplier supplier;
         this.supplier = supplier;
     }
 
-    @FXML
-    private TextField deliveryIdTextField;
-    @FXML
-    private TextField quantitiesTextField;
-    @FXML
-    private DatePicker deliveryDatePicker;
-   
-    
-    @FXML
-    private ComboBox<String> statusComboBox;
-@FXML
-    private Label statusInfoLabel;
+    @FXML    private TextField deliveryIdTextField;   
+    @FXML    private DatePicker deliveryDatePicker;     
+    @FXML    private ComboBox<String> statusComboBox;
+    @FXML    private Label statusInfoLabel;
 
     
     @Override
@@ -82,10 +74,11 @@ private Supplier supplier;
        
     
         int deliveryId =Integer.parseInt(deliveryIdTextField.getText());
-        int quantities =Integer.parseInt(quantitiesTextField.getText());
+        //int quantities =Integer.parseInt(quantitiesTextField.getText());
         LocalDate deliveryDate = deliveryDatePicker.getValue();
+        
         String deliveryStatus=statusComboBox.getValue();
-        if (deliveryId <= 0 || quantities<=0 || deliveryDate == null||deliveryStatus==null) {
+        if (deliveryId <= 0 ||  deliveryDate == null||deliveryStatus==null) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setHeaderText(null);
@@ -95,10 +88,11 @@ private Supplier supplier;
    
         
 }
-Supplier.orderStatus(deliveryId, deliveryDate, quantities,deliveryStatus);
+Supplier.orderStatus(deliveryId, deliveryDate, deliveryStatus);
     
-        String statusInfo = "deliveryId: " + deliveryId + "\n\n"
-                + "deliveryDate: " + deliveryDate + "\n\n"+ "quantities: " + quantities + "\n\n"
+String statusInfo = "deliveryId: " + deliveryId + "\n\n"
+                + "deliveryDate: " + deliveryDate + "\n\n"
+                + "Delivery status:"+deliveryStatus+"\n\n"
                 ;
         statusInfoLabel.setText(statusInfo);
         System.out.println("Successful");

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="SupplyChainManager.View_StatusController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SupplyChainManager.View_StatusController">
    <children>
       <Label layoutX="195.0" layoutY="46.0" prefHeight="33.0" prefWidth="196.0" style="-fx-background-color: white; -fx-border-color: red;" text="     Status Update" textFill="#c35d22">
          <font>
@@ -17,10 +16,9 @@
       </Label>
       <TableView fx:id="statusInfoTableView" layoutX="24.0" layoutY="100.0" prefHeight="200.0" prefWidth="538.0">
          <columns>
-            <TableColumn fx:id="deliveryIdTableColumn" prefWidth="115.0" text="Delivery Id" />
-            <TableColumn fx:id="deliveryDateTableColumn" prefWidth="135.0" text="Delivery Date" />
-            <TableColumn fx:id="quantititesTableColumn" prefWidth="135.0" text="Quantities" />
-            <TableColumn fx:id="deliveryStatusTableColumn" prefWidth="152.0" text="Delivery Status" />
+            <TableColumn fx:id="deliveryIdTableColumn" prefWidth="199.0" text="Delivery Id" />
+            <TableColumn fx:id="deliveryDateTableColumn" prefWidth="141.0" text="Delivery Date" />
+            <TableColumn fx:id="deliveryStatusTableColumn" prefWidth="197.0" text="Delivery Status" />
          </columns>
       </TableView>
       <Button layoutX="499.0" layoutY="346.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="21.0" prefWidth="78.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Back">

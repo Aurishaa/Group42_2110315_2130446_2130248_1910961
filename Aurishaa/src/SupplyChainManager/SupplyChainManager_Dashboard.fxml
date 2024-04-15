@@ -9,6 +9,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="714.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SupplyChainManager.SupplyChainManager_DashboardController">
    <children>
+      <Button layoutX="38.0" layoutY="413.0" mnemonicParsing="false" onAction="#manageProductsButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Manage Products">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
       <Label layoutX="194.0" layoutY="55.0" prefHeight="39.0" prefWidth="267.0" text="Hello!&#10;Welcome to Supply Chain Manager Dashboard">
          <font>
             <Font name="System Italic" size="13.0" />
@@ -26,36 +31,31 @@
             <Font name="System Bold Italic" size="25.0" />
          </font>
       </Label>
-      <Button layoutX="37.0" layoutY="92.0" mnemonicParsing="false" onAction="#provideOrdersButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Provide Orders">
+      <Button layoutX="38.0" layoutY="94.0" mnemonicParsing="false" onAction="#provideOrdersButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Provide Orders">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="37.0" layoutY="141.0" mnemonicParsing="false" onAction="#viewStatusButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="View Status">
+      <Button layoutX="38.0" layoutY="149.0" mnemonicParsing="false" onAction="#viewStatusButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="View Status">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="193.0" mnemonicParsing="false" onAction="#budgetApproveButtonMouseOnClicked" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Budget Approval    &#10;         Request">
+      <Button layoutX="37.0" layoutY="202.0" mnemonicParsing="false" onAction="#budgetApproveButtonMouseOnClicked" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Budget Approval    &#10;         Request">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="252.0" mnemonicParsing="false" onAction="#approveProductButtonMouseOnClicked" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="     Approve&#10;Sample Product">
+      <Button layoutX="37.0" layoutY="259.0" mnemonicParsing="false" onAction="#approveProductButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Approve Product">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="308.0" mnemonicParsing="false" onAction="#InventoryButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Inventory">
+      <Button layoutX="38.0" layoutY="312.0" mnemonicParsing="false" onAction="#InventoryButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Inventory">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="357.0" mnemonicParsing="false" onAction="#viewSuppliersButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="View Suppliers">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="37.0" layoutY="452.0" mnemonicParsing="false" onAction="#manageProductsButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Manage Products">
+      <Button layoutX="38.0" layoutY="363.0" mnemonicParsing="false" onAction="#viewSuppliersButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="View Suppliers">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -75,7 +75,7 @@
             <Font name="Baskerville Old Face" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="37.0" layoutY="403.0" mnemonicParsing="false" onAction="#viewReportButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="View Report">
+      <Button layoutX="37.0" layoutY="464.0" mnemonicParsing="false" onAction="#viewReportButtonMouseOnClicked" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: orange; -fx-border-color: red;" text="View Report">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

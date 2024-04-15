@@ -12,7 +12,6 @@
    <children>
       <TableView fx:id="paymentInfoTableView" layoutX="95.0" layoutY="207.0" prefHeight="200.0" prefWidth="552.0">
         <columns>
-          <TableColumn fx:id="orderIdTableColumn" prefWidth="83.0" text="Order Id " />
           <TableColumn fx:id="productNameTableColumn" prefWidth="140.0" text="Product Name" />
             <TableColumn fx:id="quantitiesTableColumn" prefWidth="94.0" text="Quantities" />
             <TableColumn fx:id="unitPriceTableColumn" prefWidth="94.0" text="Unit Price" />
@@ -29,17 +28,11 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="43.0" layoutY="66.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Order ID:">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
       <Label layoutX="43.0" layoutY="104.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Product Name:">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="orderIdTextField" layoutX="169.0" layoutY="67.0" />
       <TextField fx:id="productNameTextField" layoutX="169.0" layoutY="105.0" />
       <Label layoutX="43.0" layoutY="145.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Quantities:">
          <font>
@@ -47,18 +40,18 @@
          </font>
       </Label>
       <TextField fx:id="quantitiesTextField" layoutX="169.0" layoutY="146.0" />
-      <Label layoutX="362.0" layoutY="66.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Unit Price:">
+      <Label layoutX="362.0" layoutY="104.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Unit Price:">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="362.0" layoutY="104.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Total Price:">
+      <Label layoutX="362.0" layoutY="145.0" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: orange;" text="Total Price:">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="unitPriceTextField" layoutX="486.0" layoutY="67.0" />
-      <TextField fx:id="totalPriceTextField" layoutX="486.0" layoutY="105.0" />
+      <TextField fx:id="unitPriceTextField" layoutX="486.0" layoutY="105.0" />
+      <TextField fx:id="totalPriceTextField" layoutX="486.0" layoutY="146.0" />
       <Label layoutX="244.0" layoutY="23.0" prefHeight="33.0" prefWidth="232.0" style="-fx-background-color: white; -fx-border-color: red;" text="   Payment Confirmation" textFill="#c35d22">
          <font>
             <Font name="Arial Bold Italic" size="18.0" />

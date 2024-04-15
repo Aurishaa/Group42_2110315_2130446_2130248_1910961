@@ -32,8 +32,7 @@ public class Approve_ProductController implements Initializable {
     private TableColumn<ProductSample, String> productNameTableColumn;
     @FXML
     private TableColumn<ProductSample, Integer> quantityTableColumn;
-    @FXML
-    private TableColumn<ProductSample, String> emailTableColumn;
+    
     @FXML
     private TableColumn<ProductSample, Integer> phonenumberTableColumn;
     @FXML
@@ -53,7 +52,7 @@ public class Approve_ProductController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        productNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
     quantityTableColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-    emailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+    
     phonenumberTableColumn.setCellValueFactory(new PropertyValueFactory<>("number"));
     shippingAddressTableColumn.setCellValueFactory(new PropertyValueFactory<>("shippingAddress"));
       // ObservableList<Budget> budgetList = approveBudget();

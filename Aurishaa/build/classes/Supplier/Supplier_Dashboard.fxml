@@ -9,37 +9,37 @@
 
 <AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="714.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Supplier.Supplier_DashboardController">
    <children>
-      <Button layoutX="47.0" layoutY="87.0" mnemonicParsing="false" onAction="#supplierInformationButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Supplier Information">
+      <Button layoutX="49.0" layoutY="74.0" mnemonicParsing="false" onAction="#supplierInformationButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Supplier Information">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="47.0" layoutY="139.0" mnemonicParsing="false" onAction="#incomingOrdersButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Incoming Orders">
+      <Button layoutX="49.0" layoutY="130.0" mnemonicParsing="false" onAction="#incomingOrdersButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Incoming Orders">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="47.0" layoutY="289.0" mnemonicParsing="false" onAction="#orderListButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Order List">
+      <Button layoutX="49.0" layoutY="186.0" mnemonicParsing="false" onAction="#orderListButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Order List">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="47.0" layoutY="341.0" mnemonicParsing="false" onAction="#suppliedProductsButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Supplied Products">
+      <Button layoutX="49.0" layoutY="240.0" mnemonicParsing="false" onAction="#suppliedProductsButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Supplied Products">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="47.0" layoutY="397.0" mnemonicParsing="false" onAction="#processPaymentButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Process Payment">
+      <Button layoutX="49.0" layoutY="289.0" mnemonicParsing="false" onAction="#processPaymentButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Process Payment">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="595.0" layoutY="465.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: orange; -fx-border-color: red;" text="BACK">
+      <Button layoutX="589.0" layoutY="454.0" mnemonicParsing="false" onAction="#backButtonMouseOnClicked" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: orange; -fx-border-color: red;" text="BACK">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="47.0" layoutY="33.0" prefHeight="47.0" prefWidth="116.0" style="-fx-background-color: beige; -fx-font: red;" text=" Supplier " textFill="#99422e">
+      <Label layoutX="59.0" layoutY="17.0" prefHeight="47.0" prefWidth="116.0" style="-fx-background-color: beige; -fx-font: red;" text=" Supplier " textFill="#99422e">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
@@ -54,7 +54,7 @@
             <Font name="Arial Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="47.0" layoutY="452.0" mnemonicParsing="false" onAction="#supplyReportButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Supply Report">
+      <Button layoutX="49.0" layoutY="339.0" mnemonicParsing="false" onAction="#supplyReportButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Supply Report">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
@@ -70,12 +70,12 @@
             <Font name="Baskerville Old Face" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="47.0" layoutY="186.0" mnemonicParsing="false" onAction="#viewTaskButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="View Task">
+      <Button layoutX="49.0" layoutY="387.0" mnemonicParsing="false" onAction="#assignOrderStatusButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Assign Order Status">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="47.0" layoutY="240.0" mnemonicParsing="false" onAction="#assignOrderStatusButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Assign Order Status">
+      <Button layoutX="49.0" layoutY="435.0" mnemonicParsing="false" onAction="#requestBudgetButtonMouseOnClicked" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: orange; -fx-border-color: red;" text="Request Budget">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

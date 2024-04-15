@@ -14,6 +14,7 @@ import Classes.ProductSample;
 import Classes.SuppliedProduct;
 import Common.AppendableObjectOutputStream;
 import Classes.SupplierInformationTable;
+import Classes.SupplyReport;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -247,6 +248,23 @@ public class SupplyChainManager extends User implements Serializable{
         }
         System.out.println(statusInfo);
         return statusInfo;
+    } 
+  public static ObservableList<SupplyReport> viewReport() {
+    ObservableList<SupplyReport> reportInfo = FXCollections.observableArrayList();
+    SupplyReport s;
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("SupplyReport.bin"));
+            while (true) {
+                s = (SupplyReport) ois.readObject();
+                System.out.println("The supplier Information you read: " + s.toString());
+                reportInfo.add(s);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("File reading done");
+        }
+        System.out.println(reportInfo);
+        return reportInfo;
     } 
 }
 

@@ -11,16 +11,16 @@ import java.time.LocalDate;
 public class OrderStatus implements Serializable{
     public int deliveryId;
     public LocalDate deliveryDate;
-    public int quantities;
+    
     public String deliveryStatus;
 
     public OrderStatus() {
     }
 
-    public OrderStatus(int deliveryId, LocalDate deliveryDate, int quantities, String deliveryStatus) {
+    public OrderStatus(int deliveryId, LocalDate deliveryDate, String deliveryStatus) {
         this.deliveryId = deliveryId;
         this.deliveryDate = deliveryDate;
-        this.quantities = quantities;
+        
         this.deliveryStatus = deliveryStatus;
     }
 
@@ -40,13 +40,9 @@ public class OrderStatus implements Serializable{
         this.deliveryDate = deliveryDate;
     }
 
-    public int getQuantities() {
-        return quantities;
-    }
+   
 
-    public void setQuantities(int quantities) {
-        this.quantities = quantities;
-    }
+    
 
     public String getDeliveryStatus() {
         return deliveryStatus;
@@ -58,8 +54,9 @@ public class OrderStatus implements Serializable{
 
     @Override
     public String toString() {
-        return "OrderStatus{" + "deliveryId=" + deliveryId + ", deliveryDate=" + deliveryDate + ", quantities=" + quantities + ", deliveryStatus=" + deliveryStatus + '}';
+        return "OrderStatus{" + "deliveryId=" + deliveryId + ", deliveryDate=" + deliveryDate + ", deliveryStatus=" + deliveryStatus + '}';
     }
     
     
 }
+
