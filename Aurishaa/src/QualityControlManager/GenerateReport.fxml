@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="648.0" prefWidth="985.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QualityControlManager.GenerateReportController">
+   <children>
+      <TableView fx:id="ReportTV" layoutX="256.0" layoutY="205.0" prefHeight="323.0" prefWidth="474.0">
+        <columns>
+          <TableColumn fx:id="ReportTypeTC" prefWidth="189.0" text="Report" />
+          <TableColumn fx:id="ReasonTC" prefWidth="411.0" text="Reason" />
+        </columns>
+      </TableView>
+      <Button layoutX="782.0" layoutY="569.0" mnemonicParsing="false" onAction="#generateReportOnMouseClick" text="Generate Report" />
+      <Label layoutX="95.0" layoutY="51.0" text="ReportType:" />
+      <TextField fx:id="reportTypeTextField" layoutX="203.0" layoutY="46.0" />
+      <Label layoutX="587.0" layoutY="51.0" text="Reason:" />
+      <TextField fx:id="reasonTextField" layoutX="660.0" layoutY="46.0" />
+      <Button layoutX="243.0" layoutY="129.0" mnemonicParsing="false" onAction="#addToTableOnMouseClick" text="Add To Table" />
+      <Button layoutX="660.0" layoutY="129.0" mnemonicParsing="false" onAction="#clearTableOnMouseClick" text="Clear Table" />
+      <Button layoutX="109.0" layoutY="554.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Back" />
+   </children>
+</AnchorPane>
