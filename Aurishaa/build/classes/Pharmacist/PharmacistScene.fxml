@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="696.0" prefWidth="1119.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pharmacist.PharmacistSceneController">
+<AnchorPane id="AnchorPane" prefHeight="696.0" prefWidth="1119.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pharmacist.PharmacistSceneController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Button fx:id="dashboardButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#dashboardOnMouseClick" prefHeight="95.0" prefWidth="178.0" text="DASHBOARD">
@@ -21,7 +21,7 @@
       <Button fx:id="distributeMedicineButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#distributeMedicineOnMouseClick" text="DistributeMedicine" />
       <Button fx:id="generateReportButton" layoutX="14.0" layoutY="418.0" mnemonicParsing="false" onAction="#generateReportOnMouseClick" text="GenerateReport" />
       <Button fx:id="setReminderButton" layoutX="14.0" layoutY="478.0" mnemonicParsing="false" onAction="#setReminderOnMouseClick" text="SetReminder" />
-      <Button fx:id="researchProposalButton" layoutX="15.0" layoutY="537.0" mnemonicParsing="false" onAction="#researchProposalOnMouseClick" text="ResearchProposal" />
+      <Button fx:id="budgetProposalButton" layoutX="15.0" layoutY="537.0" mnemonicParsing="false" onAction="#budgetProposalOnMouseClick" text="BudgetProposal" />
       <Label layoutX="338.0" layoutY="138.0" prefHeight="392.0" prefWidth="704.0" text="Welcome to your DashBoard Pharmacist" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="87.0" />
