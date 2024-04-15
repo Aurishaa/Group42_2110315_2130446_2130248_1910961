@@ -5,62 +5,31 @@
 package Classes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 public class Cart implements Serializable {
+    
+    private List<Product> items;
+
+    public Cart(List<Product> items) {
+        this.items = items;
+    }
+    
+    
+    
+   public Cart() {
+        this.items = new ArrayList<>();
+    }
+
+    public List<Product> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Product> items) {
+        this.items = items;
+    }
  
-    private String productName;
-    private int quantity;
-    private float unitPrice;
-    private float totalPrice; 
-
-    public Cart(String productName, int quantity, float unitPrice, float totalPrice) {
-        this.productName = productName;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.totalPrice = totalPrice;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public float getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(float unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public float getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(float totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    @Override
-    public String toString() {
-        return "Cart{" + "productName=" + productName + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", totalPrice=" + totalPrice + '}';
-    }
-    
-    
-    public float findTotalPrice(){
-       float total= this.quantity * this.unitPrice;
-       return total;
-    }
 }

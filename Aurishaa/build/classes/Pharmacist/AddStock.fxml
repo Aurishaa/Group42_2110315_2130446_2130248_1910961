@@ -5,13 +5,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="244.0" prefWidth="439.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Pharmacist.AddStockController">
+<AnchorPane id="AnchorPane" prefHeight="244.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pharmacist.AddStockController">
    <children>
-      <Label layoutX="42.0" layoutY="58.0" text="First Stock Name:" />
-      <TextField fx:id="firstSNTextField" layoutX="207.0" layoutY="53.0" />
-      <Label layoutX="42.0" layoutY="96.0" text="Second Stock Name:" />
-      <TextField fx:id="secondSNTextField" layoutX="207.0" layoutY="91.0" />
-      <Button layoutX="175.0" layoutY="161.0" mnemonicParsing="false" onAction="#addStockOnButtonClick" text="Add" />
+      <Label layoutX="42.0" layoutY="58.0" text="ProductName:" />
+      <TextField fx:id="productTextField" layoutX="175.0" layoutY="53.0" />
+      <Label layoutX="42.0" layoutY="96.0" text="UnitPrice:" />
+      <TextField fx:id="unitPriceTextField" layoutX="175.0" layoutY="91.0" />
+      <Button layoutX="314.0" layoutY="180.0" mnemonicParsing="false" onAction="#addStockOnButtonClick" text="Add" />
+      <Label layoutX="42.0" layoutY="132.0" text="Availability:" />
+      <TextField fx:id="availabilityTextField" layoutX="175.0" layoutY="127.0" />
+      <Button layoutX="47.0" layoutY="180.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Back" />
    </children>
 </AnchorPane>

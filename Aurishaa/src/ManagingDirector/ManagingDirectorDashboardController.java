@@ -32,8 +32,14 @@ public class ManagingDirectorDashboardController implements Initializable {
     }    
 
     @FXML
-    private void viewReportOnButtonClick(ActionEvent event) {
+    private void viewReportOnButtonClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/ViewSalesReport.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
+    
 
     @FXML
     private void createOrEditPolicyOnButtonClick(ActionEvent event) throws IOException {
@@ -70,5 +76,16 @@ public class ManagingDirectorDashboardController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
+    @FXML
+    private void moreButtonOnClick(ActionEvent event) throws IOException {
+           Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/More.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+        
+    }
     
-}
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lavender;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManagingDirector.ViewSupplierInfoController">
+   <children>
+      <TableView fx:id="supplierInfoTableView" layoutX="74.0" layoutY="100.0" prefHeight="200.0" prefWidth="453.0">
+        <columns>
+          <TableColumn fx:id="supplierNameTableColumn" prefWidth="225.0" text="Supplier Name" />
+          <TableColumn fx:id="contactNumberTableColumn" prefWidth="227.0" text="Contact Number" />
+        </columns>
+      </TableView>
+      <Label layoutX="199.0" layoutY="32.0" text="Supplier Info">
+         <font>
+            <Font name="Arial Bold" size="33.0" />
+         </font>
+      </Label>
+      <Button layoutX="60.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToDashBoardOnButtonClick" prefHeight="31.0" prefWidth="75.0" text="Back" />
+   </children>
+</AnchorPane>
