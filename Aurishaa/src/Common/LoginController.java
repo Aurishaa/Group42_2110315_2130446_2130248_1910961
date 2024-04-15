@@ -255,7 +255,7 @@ public class LoginController implements Initializable {
                 while (true) {
                     p = (User) ois.readObject();
                     if (String.valueOf(p.getID()).equals(idTextField.getText()) && p.getPassword().equals(pwPasswordField.getText())) {
-                        Parent A = FXMLLoader.load(getClass().getResource("QualityControlManagerDashboard.fxml"));
+                        Parent A = FXMLLoader.load(getClass().getResource("/QualityControlManager/QCMScene.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(sceneA);                      
