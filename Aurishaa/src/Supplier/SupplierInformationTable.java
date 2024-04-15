@@ -1,11 +1,13 @@
 
 package Supplier;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dell
  */
-public class SupplierInformationTable {
+public class SupplierInformationTable implements Serializable {
     private String companyName;
     private String contactPerson;
     private String contactNumber;
@@ -16,7 +18,6 @@ public class SupplierInformationTable {
         this.contactNumber = contactNumber;
     }
 
-    
     public String getCompanyName() {
         return companyName;
     }
@@ -47,3 +48,5 @@ public class SupplierInformationTable {
     }
     
 }
+
+  
