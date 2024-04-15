@@ -40,11 +40,17 @@ public class MoreController implements Initializable {
     
 
     @FXML
-    private void viewBudgetDistributorButtonOnClick(ActionEvent event) {
+    private void viewBudgetDistributorButtonOnClick(ActionEvent event) throws IOException {
+         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/ManagingDirector/BudgetHistoryPieChart.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
     private void goToDashboardButtonOnClick(ActionEvent event) {
+        
     }
     
 }

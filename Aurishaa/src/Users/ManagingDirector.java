@@ -283,4 +283,22 @@ public class ManagingDirector  extends User implements Serializable{
  
  
 }
+    
+    
+    public static ObservableList<Budget> viewBudgetDistributionPieChart() {
+    ObservableList<Budget> budgetView = FXCollections.observableArrayList();
+    File file = new File("Budget.bin");
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Budget  newBudget= (Budget) ois.readObject();
+            budgetView.add(newBudget);
+        }
+    } catch (EOFException e) {
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    return budgetView;
+    }
 }
